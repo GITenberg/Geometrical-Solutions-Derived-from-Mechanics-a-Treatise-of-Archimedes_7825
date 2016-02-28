@@ -1,0 +1,2698 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+%                                                                         %
+% The Project Gutenberg EBook of Geometrical Solutions Derived from Mechanics, by 
+% Archimedes                                                              %
+%                                                                         %
+% This eBook is for the use of anyone anywhere in the United States and most
+% other parts of the world at no cost and with almost no restrictions     %
+% whatsoever.  You may copy it, give it away or re-use it under the terms of
+% the Project Gutenberg License included with this eBook or online at     %
+% www.gutenberg.org.  If you are not located in the United States, you'll have
+% to check the laws of the country where you are located before using this ebook.
+%                                                                         %
+%                                                                         %
+%                                                                         %
+% Title: Geometrical Solutions Derived from Mechanics                     %
+%        A Treatise of Archimedes                                         %
+%                                                                         %
+% Author: Archimedes                                                      %
+%                                                                         %
+% Release Date: November 1, 2014 [EBook #7825]                            %
+%                                                                         %
+% Language: English                                                       %
+%                                                                         %
+% Character set encoding: ISO-8859-1                                      %
+%                                                                         %
+% *** START OF THIS PROJECT GUTENBERG EBOOK GEOMETRICAL SOLUTIONS ***     %
+%                                                                         %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+
+\def\ebook{7825}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                  %%
+%% Packages and substitutions:                                      %%
+%%                                                                  %%
+%% book:     Required.                                              %%
+%% inputenc: Latin-1 text encoding. Required.                       %%
+%%                                                                  %%
+%% ifthen:   Logical conditionals. Required.                        %%
+%%                                                                  %%
+%% amsmath:  AMS mathematics enhancements. Required.                %%
+%% amssymb:  Additional mathematical symbols. Required.             %%
+%%                                                                  %%
+%% alltt:    Fixed-width font environment. Required.                %%
+%%                                                                  %%
+%% indentfirst: Indent first line of each section. Optional.        %%
+%%                                                                  %%
+%% graphicx: Standard interface for graphics inclusion. Required.   %%
+%%                                                                  %%
+%% calc:     Length calculations. Required.                         %%
+%%                                                                  %%
+%% fancyhdr: Enhanced running headers and footers. Required.        %%
+%%                                                                  %%
+%% geometry: Enhanced page layout package. Required.                %%
+%% hyperref: Hypertext embellishments for pdf output. Required.     %%
+%%                                                                  %%
+%%                                                                  %%
+%% Producer's Comments:                                             %%
+%%                                                                  %%
+%% Originally produced in 2003 by Gordon Keener <gkeener@nc.rr.com> %%
+%%                                                                  %%
+%% Compilation Flags:                                               %%
+%%                                                                  %%
+%%   The following behavior may be controlled by boolean flags.     %%
+%%                                                                  %%
+%%   ForPrinting (false by default):                                %%
+%%   If false, compile a screen optimized file (one-sided layout,   %%
+%%   blue hyperlinks). If true, print-optimized PDF file: Larger    %%
+%%   text block, two-sided layout, black hyperlinks.                %%
+%%                                                                  %%
+%%                                                                  %%
+%% PDF pages:  59 (if ForPrinting set to false)                     %%
+%% PDF page size: 4.5 x 6.5" (non-standard)                         %%
+%%                                                                  %%
+%% Summary of log file:                                             %%
+%% * No warnings.                                                   %%
+%%                                                                  %%
+%% Compile History:                                                 %%
+%%                                                                  %%
+%% November, 2014: (Andrew D. Hwang)                                %%
+%%             texlive2009, GNU/Linux                               %%
+%%                                                                  %%
+%% Command block:                                                   %%
+%%                                                                  %%
+%%     pdflatex x2                                                  %%
+%%                                                                  %%
+%%                                                                  %%
+%% November 2014: pglatex.                                          %%
+%%   Compile this project with:                                     %%
+%%   pdflatex 7825-t.tex ..... TWO times                            %%
+%%                                                                  %%
+%%   pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian)   %%
+%%                                                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listfiles
+\documentclass[12pt,leqno]{book}[2005/09/16]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[latin1]{inputenc}[2006/05/05]
+
+\usepackage{ifthen}[2001/05/26]  %% Logical conditionals
+
+\usepackage[greek,english]{babel}
+
+\usepackage{amsmath}[2000/07/18] %% Displayed equations
+\usepackage{amssymb}[2002/01/22] %% and additional symbols
+
+\usepackage{alltt}[1997/06/16]   %% boilerplate, credits, license
+
+\IfFileExists{indentfirst.sty}{%
+  \usepackage{indentfirst}[1995/11/23]
+}{}
+
+\usepackage{graphicx}[1999/02/16]%% For diagrams
+
+\usepackage{calc}[2005/08/06]
+
+\usepackage{fancyhdr} %% For running heads
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Interlude:  Set up PRINTING (default) or SCREEN VIEWING %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ForPrinting=true                     false (default)
+% Asymmetric margins                   Symmetric margins
+% 1 : 1.6 text block aspect ratio      3 : 4 text block aspect ratio
+% Black hyperlinks                     Blue hyperlinks
+% Start major marker pages recto       No blank verso pages
+%
+\newboolean{ForPrinting}
+
+%% UNCOMMENT the next line for a PRINT-OPTIMIZED VERSION of the text %%
+%\setboolean{ForPrinting}{true}
+
+%% Initialize values to ForPrinting=false
+\newcommand{\Margins}{hmarginratio=1:1}     % Symmetric margins
+\newcommand{\HLinkColor}{blue}              % Hyperlink color
+\newcommand{\PDFPageLayout}{SinglePage}
+\newcommand{\TransNote}{Transcriber's Note}
+\newcommand{\TransNoteCommon}{%
+  The camera-quality files for this public-domain ebook may be
+  downloaded \textit{gratis} at
+  \begin{center}
+    \texttt{www.gutenberg.org/ebooks/\ebook}.
+  \end{center}
+
+  This ebook was produced using scanned images generously provided by
+  the University of California, Berkeley, Mathematics and Statistics
+  Library, through the Internet Archive.
+  \bigskip
+
+  Minor typographical corrections and presentational changes have been
+  made without comment.
+  \bigskip
+}
+
+\newcommand{\TransNoteText}{%
+  \TransNoteCommon
+
+  This PDF file is optimized for screen viewing, but may be recompiled
+  for printing. Please consult the preamble of the \LaTeX\ source file
+  for instructions and other particulars.
+}
+%% Re-set if ForPrinting=true
+\ifthenelse{\boolean{ForPrinting}}{%
+  \renewcommand{\Margins}{hmarginratio=2:3} % Asymmetric margins
+  \renewcommand{\HLinkColor}{black}         % Hyperlink color
+  \renewcommand{\PDFPageLayout}{TwoPageRight}
+  \renewcommand{\TransNote}{Transcriber's Note}
+  \renewcommand{\TransNoteText}{%
+    \TransNoteCommon
+
+    This PDF file is optimized for printing, but may be recompiled for
+    screen viewing. Please consult the preamble of the \LaTeX\ source
+    file for instructions and other particulars.
+  }
+}{% If ForPrinting=false, don't skip to recto
+  \renewcommand{\cleardoublepage}{\clearpage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  End of PRINTING/SCREEN VIEWING code; back to packages  %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{ForPrinting}}{%
+  \setlength{\paperwidth}{8.5in}%
+  \setlength{\paperheight}{11in}%
+% 1:1.6
+  \usepackage[body={5in,8in},\Margins]{geometry}[2002/07/08]
+}{%
+  \setlength{\paperwidth}{4.5in}%
+  \setlength{\paperheight}{6.5in}%
+  \raggedbottom
+% 3:4
+  \usepackage[body={4.25in,5.6in},\Margins,includeheadfoot]{geometry}[2002/07/08]
+}
+
+\providecommand{\ebook}{00000}    % Overridden during white-washing
+\usepackage[pdftex,
+  hyperfootnotes=false,
+  pdftitle={The Project Gutenberg eBook \#\ebook: Geometrical Solutions Derived from Mechanics.},
+  pdfauthor={Archimedes of Syracuse}
+  pdfkeywords={The Internet Archive, Gordon Keener},
+  pdfstartview=Fit,    % default value
+  pdfstartpage=1,      % default value
+  pdfpagemode=UseNone, % default value
+  bookmarks=true,      % default value
+  linktocpage=false,   % default value
+  pdfpagelayout=\PDFPageLayout,
+  pdfdisplaydoctitle,
+  pdfpagelabels=true,
+  bookmarksopen=true,
+  bookmarksopenlevel=0,
+  colorlinks=true,
+  linkcolor=\HLinkColor]{hyperref}[2007/02/07]
+
+
+%% Fixed-width environment to format PG boilerplate %%
+\newenvironment{PGtext}{%
+\begin{alltt}
+\fontsize{8.1}{10}\ttfamily\selectfont}%
+{\end{alltt}}
+
+%% Miscellaneous global parameters %%
+% No hrule in page header
+\renewcommand{\headrulewidth}{0pt}
+
+% Loosen spacing
+\setlength{\emergencystretch}{1em}
+
+% [** TN: Changes made for stylistic consistency]
+\newcommand{\Chg}[2]{#2}
+
+%% Running heads %%
+\newcommand{\FlushRunningHeads}{\clearpage\fancyhf{}}
+\newcommand{\InitRunningHeads}{%
+  \setlength{\headheight}{15pt}
+  \pagestyle{fancy}
+  \thispagestyle{empty}
+  \ifthenelse{\boolean{ForPrinting}}
+             {\fancyhead[RO,LE]{\thepage}}
+             {\fancyhead[R]{\thepage}}
+}
+
+% Uniform style for running heads
+\ifthenelse{\boolean{ForPrinting}}{%
+  \newcommand{\HeadSize}{\normalsize}%
+}{
+  \newcommand{\HeadSize}{\footnotesize}%
+}
+\newcommand{\RHeads}[1]{\HeadSize\textsc{\MakeLowercase{#1}}}
+
+\newcommand{\SetRunningHeads}[2][Geometrical Solutions Derived from Mechanics.]{%
+  \fancyhead[CE]{\RHeads{#1}}
+  \fancyhead[CO]{\RHeads{#2}}
+}
+
+\newcommand{\BookMark}[2]{\phantomsection\pdfbookmark[#1]{#2}{#2}}
+
+%% Major document divisions %%
+\newcommand{\PGBoilerPlate}{%
+  \pagenumbering{Alph}
+  \pagestyle{empty}
+  \BookMark{0}{PG Boilerplate.}
+}
+\newcommand{\FrontMatter}{%
+  \cleardoublepage
+  \frontmatter
+  \BookMark{-1}{Front Matter.}
+}
+\newcommand{\MainMatter}{%
+  \FlushRunningHeads
+  \InitRunningHeads
+  \mainmatter
+  \BookMark{-1}{Main Matter.}
+}
+\newcommand{\BackMatter}{%
+  \FlushRunningHeads
+  \InitRunningHeads
+  \backmatter
+  \BookMark{-1}{Back Matter.}
+}
+\newcommand{\PGLicense}{%
+  \FlushRunningHeads
+  \pagenumbering{Roman}
+  \InitRunningHeads
+  \BookMark{-1}{PG License.}
+  \SetRunningHeads[License.]{License.}
+}
+
+%% Sectional units %%
+% Typographical abstraction
+\newcommand{\SectTitle}[1]{%
+  \section*{\centering\normalsize\normalfont #1}
+}
+
+\newcommand{\Section}[1]{
+  \FlushRunningHeads
+  \InitRunningHeads
+  \SetRunningHeads{#1}
+  \BookMark{0}{#1}
+  \setcounter{footnote}{0}
+  \SectTitle{\MakeUppercase{#1}}
+}
+
+\newcommand{\Subsection}[1]{
+  \BookMark{1}{Section #1}
+  \SectTitle{#1}
+}
+
+%% Diagrams %%
+\newcommand{\Graphic}[2]{%
+  \includegraphics[width=#1]{./images/#2.png}%
+}
+% \Figure[width]{figure number}{file}
+\newcommand{\DefWidth}{0.66\textwidth}% Default figure width
+\newcommand{\Figure}[3][\DefWidth]{%
+  \begin{figure}[hbt!]
+    \centering
+    \phantomsection\label{fig:#2}
+    \Graphic{#1}{#3} \\
+    Fig.~#2.
+  \end{figure}\ignorespaces%
+}
+% ** One-use macro for side-by-side diagrams
+\newcommand{\Figures}[4]{%
+  \begin{figure}[hbt!]
+    \centering
+    \phantomsection\label{fig:#1}
+    \Graphic{0.45\textwidth}{#2}\hfill
+    \phantomsection\label{fig:#3}
+    \Graphic{0.45\textwidth}{#4}
+  \end{figure}\ignorespaces%
+}
+
+% Figure labels
+\newcommand{\Fig}[1]{\hyperref[fig:#1]{Fig.~{\upshape #1}}}
+
+% Page separators
+\newcommand{\PageSep}[1]{\ignorespaces}
+
+% Miscellaneous textual conveniences (N.B. \emph, not \textit)
+\newcommand{\ie}{i.\;e.}
+\newcommand{\ibid}{\emph{ibid.}}
+\newcommand{\Ibid}{\emph{Ibid.}}
+\newcommand{\QED}{Q.\,E.\,D.}
+
+\newcommand{\SameMark}{\addtocounter{footnote}{-1}\footnotemark}
+
+\newcommand{\First}[1]{\textsc{#1}}
+\newcommand{\Signature}[2]{%
+  \null\hfill\textsc{#1}\qquad\null \\
+  \null\qquad\textsc{#2}
+}
+
+\newcommand{\Title}[1]{\textit{#1}}
+
+%% Miscellaneous mathematical formatting %%
+\DeclareMathOperator{\cone}{cone\,}
+\DeclareMathOperator{\cones}{cones\,}
+\DeclareMathOperator{\cylinder}{cylinder\,}
+\DeclareMathOperator{\sphere}{sphere\,}
+\DeclareMathOperator{\spheres}{spheres\,}
+\DeclareMathOperator{\spheroid}{spheroid\,}
+\DeclareMathOperator{\segment}{segment\,}
+\DeclareMathOperator{\segm}{segm.\,}
+\DeclareMathOperator{\Tri}{triangle\,}
+\DeclareInputMath{183}{\cdot}
+
+\renewcommand{\|}{\parallel}
+
+%%%%%%%%%%%%%%%%%%%%%%%% START OF DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%% PG BOILERPLATE %%
+\PGBoilerPlate
+\begin{center}
+\begin{minipage}{\textwidth}
+\small
+\begin{PGtext}
+The Project Gutenberg EBook of Geometrical Solutions Derived from Mechanics, by 
+Archimedes
+
+This eBook is for the use of anyone anywhere in the United States and most
+other parts of the world at no cost and with almost no restrictions
+whatsoever.  You may copy it, give it away or re-use it under the terms of
+the Project Gutenberg License included with this eBook or online at
+www.gutenberg.org.  If you are not located in the United States, you'll have
+to check the laws of the country where you are located before using this ebook.
+
+
+
+Title: Geometrical Solutions Derived from Mechanics
+       A Treatise of Archimedes
+
+Author: Archimedes
+
+Release Date: November 1, 2014 [EBook #7825]
+
+Language: English
+
+Character set encoding: ISO-8859-1
+
+*** START OF THIS PROJECT GUTENBERG EBOOK GEOMETRICAL SOLUTIONS ***
+\end{PGtext}
+\end{minipage}
+\end{center}
+\newpage
+%% Credits and transcriber's note %%
+\begin{center}
+\begin{minipage}{\textwidth}
+\begin{PGtext}
+Produced by Gordon Keener
+\end{PGtext}
+\end{minipage}
+\vfill
+\end{center}
+
+\begin{minipage}{0.85\textwidth}
+\small
+\BookMark{0}{Transcriber's Note.}
+\subsection*{\centering\normalfont\scshape%
+\normalsize\MakeLowercase{\TransNote}}%
+
+\raggedright
+\TransNoteText
+\end{minipage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%
+\PageSep{i}
+\FrontMatter
+\begin{center}
+\LARGE GEOMETRICAL SOLUTIONS \\[12pt]
+\normalsize DERIVED FROM \\
+\LARGE MECHANICS
+\vfill
+
+\large A TREATISE OF ARCHIMEDES
+\vfill
+
+\footnotesize RECENTLY DISCOVERED AND TRANSLATED~FROM~THE~GREEK~BY \\
+\normalsize DR.~J.~L. HEIBERG \\
+\scriptsize PROFESSOR OF CLASSICAL PHILOLOGY AT~THE~UNIVERSITY~OF~COPENHAGEN
+\normalsize
+\vfill
+
+\footnotesize WITH AN INTRODUCTION BY \\
+\small DAVID EUGENE SMITH \\
+\scriptsize PRESIDENT OF TEACHERS COLLEGE, COLUMBIA~UNIVERSITY,~NEW~YORK
+\vfill
+
+\footnotesize ENGLISH VERSION TRANSLATED FROM~THE~GERMAN BY~LYDIA~G.~ROBINSON \\
+AND REPRINTED FROM ``THE MONIST,'' APRIL,~1909
+\vfill\vfill\vfill
+
+CHICAGO \\
+THE OPEN COURT PUBLISHING COMPANY \\
+LONDON AGENTS \\
+KEGAN PAUL, TRENCH, TRÜBNER \& CO., LTD. \\
+1909
+\end{center}
+\PageSep{ii}
+\newpage
+\begin{center}
+\null\vfill
+\footnotesize\scshape
+Copyright by \\
+The Open Court Publishing Co. \\
+1909
+\vfill
+\end{center}
+\PageSep{1}
+\MainMatter
+
+\Section{Introduction.}
+
+\First{If} there ever was a case of appropriateness in discovery,
+the finding of this manuscript in the summer of~1906
+was one. In the first place it was appropriate that the discovery
+should be made in Constantinople, since it was here
+that the West received its first manuscripts of the other extant
+works, nine in number, of the great Syracusan.
+It was furthermore appropriate that the discovery should be made
+by Professor Heiberg, \textit{facilis princeps} among all workers
+in the field of editing the classics of Greek mathematics,
+and an indefatigable searcher of the libraries of Europe
+for manuscripts to aid him in perfecting his labors.  And
+finally it was most appropriate that this work should appear
+at a time when the affiliation of pure and applied
+mathematics is becoming so generally recognized all over
+the world. We are sometimes led to feel, in considering
+isolated cases, that the great contributors of the past have
+worked in the field of pure mathematics alone, and the
+saying of Plutarch that Archimedes felt that ``every kind
+of art connected with daily needs was ignoble and vulgar''\footnote
+  {Marcellus, 17.}
+may have strengthened this feeling. It therefore assists
+us in properly orientating ourselves to read another treatise
+from the greatest mathematician of antiquity that sets
+clearly before us his indebtedness to the mechanical applications
+of his subject.
+
+Not the least interesting of the passages in the manuscript
+\PageSep{2}
+is the first line, the greeting to Eratosthenes. It is
+well known, on the testimony of Diodoros his countryman,
+that Archimedes studied in Alexandria, and the latter frequently
+makes mention of Konon of Samos whom he knew
+there, probably as a teacher, and to whom he was indebted
+for the suggestion of the spiral that bears his name. It is
+also related, this time by Proclos, that Eratosthenes was a
+contemporary of Archimedes, and if the testimony of so
+late a writer as Tzetzes, who lived in the twelfth century,
+may be taken as valid, the former was eleven years the
+junior of the great Sicilian. Until now, however, we have
+had nothing definite to show that the two were ever acquainted.
+The great Alexandrian savant,---poet, geographer,
+arithmetician,---affectionately called by the students
+Pentathlos, the champion in five sports,\footnote
+  {His nickname of \textit{Beta} is well known, possibly because his lecture room
+  was number~2.}
+selected by
+Ptolemy Euergetes to succeed his master, Kallimachos the
+poet, as head
+of the great Library,---this man, the most
+renowned of his time in Alexandria, could hardly have
+been a teacher of Archimedes, nor yet the fellow student of
+one who was so much his senior. It is more probable that
+they were friends in the later days when Archimedes was
+received as a savant rather than as a learner, and this is
+borne out by the statement at the close of proposition~I
+which refers to one of his earlier works, showing that this
+particular treatise was a late one. This reference being
+to one of the two works dedicated to Dositheos of Kolonos,\footnote
+  {We know little of his works, none of which are extant. Geminos and
+   Ptolemy refer to certain observations made by him in 200~B.~C., twelve years
+   after the death of Archimedes. Pliny also mentions him.}
+and one of these (\Title{De lineis spiralibus}) referring to an
+earlier treatise sent to Konon,\footnote
+  {\selectlanguage{greek} T\~wn pot\`i K\'onwna \'apustal\'entwn jewrhm\'atwn.}
+we are led to believe that
+this was one of the latest works of Archimedes and that
+Eratosthenes was a friend of his mature years, although
+\PageSep{3}
+one of long standing. The statement that the preliminary
+propositions were sent ``some time ago'' bears out this idea
+of a considerable duration of friendship, and the idea that
+more or less correspondence had resulted from this communication
+may be inferred by the statement that he saw,
+as he had previously said, that Eratosthenes was ``a capable
+scholar and a prominent teacher of philosophy,'' and also
+that he understood ``how to value a mathematical method
+of investigation when the opportunity offered.'' We have,
+then, new light upon the relations between these two men,
+the leaders among the learned of their day.
+
+A second feature of much interest in the treatise is the
+intimate view that we have into the workings of the mind
+of the author. It must always be remembered that Archimedes
+was primarily a discoverer, and not primarily a compiler
+as were Euclid, Apollonios, and Nicomachos. Therefore
+to have him follow up his first communication of theorems
+to Eratosthenes by a statement of his mental processes
+in reaching his conclusions is not merely a contribution
+to mathematics but one to education as well. Particularly
+is this true in the following statement, which may well be
+kept in mind in the present day: ``I have thought it well
+to analyse and lay down for you in this same book a peculiar
+method by means of which it will be possible for you
+to derive instruction as to how certain mathematical questions
+may be investigated by means of mechanics. And I
+am convinced that this is equally profitable in demonstrating
+a proposition itself; for much that was made evident
+to me through the medium of mechanics was later proved
+by means of geometry, because the treatment by the former
+method had not yet been established by way of a demonstration.
+For of course it is easier to establish a proof if one
+has in this way previously obtained a conception of the
+questions, than for him to seek it without such a preliminary
+notion\dots. Indeed I assume that some one among the
+\PageSep{4}
+investigators of to-day or in the future will discover by the
+method here set forth still other propositions which have
+not yet occurred to us.'' Perhaps in all the history of
+mathematics no such prophetic truth was ever put into
+words. It would almost seem as if Archimedes must have
+seen as in a vision the methods of Galileo, Cavalieri, Pascal,
+Newton, and many of the other great makers of the mathematics
+of the Renaissance and the present time.
+
+The first proposition concerns the quadrature of the parabola,
+a subject treated at length in one of his earlier
+communications to Dositheos.\footnote
+  {\selectlanguage{greek} Tetragwnismds parabol\~hs.}
+He gives a digest of the
+treatment, but with the warning that the proof is not complete,
+as it is in his special work upon the subject. He has,
+in fact, summarized propositions VII--XVII of his communication
+to Dositheos, omitting the geometric treatment
+of propositions XVIII--XXIV.  One thing that he
+does not state, here or in any of his works, is where the
+idea of center of gravity\footnote
+  {\selectlanguage{greek} K\'entra bar\~wn, \selectlanguage{english} for ``barycentric'' is a very old term.}
+started. It was certainly a common
+notion in his day, for he often uses it without defining
+it. It appears in Euclid's\footnote
+  {At any rate in the anonymous fragment \Title{De levi et ponderoso}, sometimes
+  attributed to him.}
+time, but how much earlier we
+cannot as yet say.
+
+Proposition~II states no new fact. Essentially it means
+that if a sphere, cylinder, and cone (always circular) have
+the same radius,~$r$, and the altitude of the cone is~$r$ and that
+of the cylinder~$2r$, then the volumes will be as $4 : 1 : 6$,
+which is true, since they are respectively $\frac{4}{3}\pi r^{3}$, $\frac{1}{3}\pi r^{3}$, and
+$2\pi r^{3}$. The interesting thing, however, is the method pursued,
+the derivation of geometric truths from principles
+of mechanics. There is, too, in every sentence, a little
+suggestion of Cavalieri, an anticipation by nearly two thousand
+years of the work of the greatest immediate precursor
+of Newton. And the geometric imagination that Archimedes
+\PageSep{5}
+shows in the last sentence is also noteworthy as one
+of the interesting features of this work: ``After I had thus
+perceived that a sphere is four times as large as the cone\dots
+it occurred to me that the surface of a sphere is four times
+as great as its largest circle, in which I proceeded from the
+idea that just as a circle is equal to a triangle whose base is
+the periphery of the circle, and whose altitude is equal to
+its radius, so a sphere is equal to a cone whose base is the
+same as the surface of the sphere and whose altitude is
+equal to the radius of the sphere.'' As a bit of generalization
+this throws a good deal of light on the workings of
+Archimedes's mind.
+
+In proposition~III he considers the volume of a spheroid,
+which he had already treated more fully in one of his
+letters to Dositheos,\footnote
+  {\selectlanguage{greek} Per\`i kwnoeide\~wn kai sfairoeide\~wn.}
+and which contains nothing new from
+a mathematical standpoint. Indeed it is the method rather
+than the conclusion that is interesting in such of the subsequent
+propositions as relate to mensuration. Proposition~V
+deals with the center of gravity of a segment of a conoid, and
+proposition~VI with the center of gravity of a hemisphere,
+thus carrying into solid geometry the work of Archimedes
+on the equilibrium of planes and on their centers of gravity.\footnote
+  {\selectlanguage{greek} 'Epip\'edwn \`isorropi\~wn \^h k\'entra bar\~wn \'epip\'edwn.}
+The general method is that already known in the
+treatise mentioned, and this is followed through proposition~X\@.
+
+Proposition~XI is the interesting case of a segment of
+a right cylinder cut off by a plane through the center of
+the lower base and tangent to the upper one. He shows
+this to equal one-sixth of the square prism that circumscribes
+the cylinder. This is well known to us through the
+formula $v = 2r^{2}h/3$, the volume of the prism being~$4r^{2}h$,
+and requires a knowledge of the center of gravity of the
+cylindric section in question.  Archimedes is, so far as we
+\PageSep{6}
+know, the first to state this result, and he obtains it by his
+usual method of the skilful balancing of sections. There
+are several lacunae in the demonstration, but enough of
+it remains to show the ingenuity of the general plan. The
+culminating interest from the mathematical standpoint lies
+in proposition~XIII, where Archimedes reduces the whole
+question to that of the quadrature of the parabola. He
+shows that a fourth of the circumscribed prism is to the
+segment of the cylinder as the semi-base of the prism is to
+the parabola inscribed in the semi-base; that is, that
+$\frac{1}{4}p : v = \frac{1}{2}b : (\frac{2}{3} · \frac{1}{2}b)$,
+whence $v = \frac{1}{6}p$. Proposition~XIV is incomplete,
+but it is the conclusion of the two preceding propositions.
+
+In general, therefore, the greatest value of the work
+lies in the following:
+
+1. It throws light upon the hitherto only suspected relations
+of Archimedes and Eratosthenes.
+
+2. It shows the working of the mind of Archimedes in
+the discovery of mathematical truths, showing that he often
+obtained his results by intuition or even by measurement,
+rather than by an analytic form of reasoning, verifying
+these results later by strict analysis.
+
+3. It expresses definitely the fact that Archimedes was
+the discoverer of those properties relating to the sphere
+and cylinder that have been attributed to him and that are
+given in his other works without a definite statement of
+their authorship.
+
+4. It shows that Archimedes was the first to state the
+volume of the cylinder segment mentioned, and it gives
+an interesting description of the mechanical method by
+which he arrived at his result.
+
+\Signature{David Eugene Smith.}{Teachers~College, Columbia~University.}
+\PageSep{7}
+
+\Section{Geometrical Solutions Derived from Mechanics.}
+
+\noindent\textsc{Archimedes to Eratosthenes, Greeting:}
+
+Some time ago I sent you some theorems I had discovered,
+writing down only the propositions because I wished you to find
+their demonstrations which had not been given. The propositions
+of the theorems which I sent you were the following:
+
+1. If in a perpendicular prism with a parallelogram\footnote
+  {This must mean a square.}
+for base
+a cylinder is inscribed which has its bases in the opposite parallelograms\SameMark\
+and its surface touching the other planes of the prism,
+and if a plane is passed through the center of the circle that is the
+base of the cylinder and one side of the square lying in the opposite
+plane, then that plane will cut off from the cylinder a section which
+is bounded by two planes, the intersecting plane and the one in
+which the base of the cylinder lies, and also by as much of the
+surface of the cylinder as lies between these same planes; and the
+detached section of the cylinder is $\frac{1}{6}$~of the whole prism.
+
+2. If in a cube a cylinder is inscribed whose bases lie in opposite
+parallelograms\SameMark\ and whose surface touches the other four planes,
+and if in the same cube a second cylinder is inscribed whose bases
+lie in two other parallelograms\SameMark\ and whose surface touches the
+four other planes, then the body enclosed by the surface of the
+cylinder and comprehended within both cylinders will be equal to
+$\frac{2}{3}$~of the whole cube.
+
+These propositions differ essentially from those formerly discovered;
+for then we compared those bodies (conoids, spheroids
+and their segments) with the volume of cones and cylinders but none
+of them was found to be equal to a body enclosed by planes. Each
+of these bodies, on the other hand, which are enclosed by two planes
+and cylindrical surfaces is found to be equal to a body enclosed
+\PageSep{8}
+by planes. The demonstration of these propositions I am accordingly
+sending to you in this book.
+
+Since I see, however, as I have previously said, that you are
+a capable scholar and a prominent teacher of philosophy, and also
+that you understand how to value a mathematical method of investigation
+when the opportunity is offered, I have thought it well
+to analyze and lay down for you in this same book a peculiar method
+by means of which it will be possible for you to derive instruction
+as to how certain mathematical questions may be investigated by
+means of mechanics. And I am convinced that this is equally profitable
+in demonstrating a proposition itself; for much that was made
+evident to me through the medium of mechanics was later proved
+by means of geometry because the treatment by the former method
+had not yet been established by way of a demonstration. For of
+course it is easier to establish a proof if one has in this way previously
+obtained a conception of the questions, than for him to seek it
+without such a preliminary notion. Thus in the familiar propositions
+the demonstrations of which Eudoxos was the first to discover,
+namely that a cone and a pyramid are one third the size of that
+cylinder and prism respectively that have the same base and altitude,
+no little credit is due to Democritos who was the first to make
+that statement about these bodies without any demonstration. But
+we are in a position to have found the present proposition in the
+same way as the earlier one; and I have decided to write down and
+make known the method partly because we have already talked
+about it heretofore and so no one would think that we were spreading
+abroad idle talk, and partly in the conviction that by this means
+we are obtaining no slight advantage for mathematics, for indeed
+I assume that some one among the investigators of to-day or in the
+future will discover by the method here set forth still other propositions
+which have not yet occurred to us.
+
+In the first place we will now explain what was also first made
+clear to us through mechanics, namely that a segment of a parabola
+is $\frac{4}{3}$~of the triangle possessing the same base and equal altitude;
+following which we will explain in order the particular propositions
+discovered by the above mentioned method; and in the last part
+of the book we will present the geometrical demonstrations of the
+propositions.\footnote
+  {In his ``Commentar,'' Professor Zeuthen calls attention to the fact that
+  it was already known from Heron's recently discovered \Title{Metrica} that these
+  propositions were contained in this treatise, and Professor Heiberg made the
+  same comment in \Title{Hermes}.---Tr.}
+\PageSep{9}
+
+1. If one magnitude is taken away from another magnitude and
+the same point is the center of gravity both of the whole and of the
+part removed, then the same point is the center of gravity of the
+remaining portion.
+
+2. If one magnitude is taken away from another magnitude and
+the center of gravity of the whole and of the part removed is not
+the same point, the center of gravity of the remaining portion may
+be found by prolonging the straight line which connects the centers
+of gravity of the whole and of the part removed, and setting off
+upon it another straight line which bears the same ratio to the
+straight line between the aforesaid centers of gravity, as the weight
+of the magnitude which has been taken away bears to the weight
+of the one remaining [\Title{De plan.\ aequil.}\ I,~8].
+
+3. If the centers of gravity of any number of magnitudes lie
+upon the same straight line, then will the center of gravity of all the
+magnitudes combined lie also upon the same straight line [Cf.\ \ibid\
+I,~5].
+
+4. The center of gravity of a straight line is the center of that
+line [Cf.\ \ibid\ I,~4].
+
+5. The center of gravity of a triangle is the point in which the
+straight lines drawn from the angles of a triangle to the centers of
+the opposite sides intersect [\Ibid\ I,~14].
+
+6. The center of gravity of a parallelogram is the point where
+its diagonals meet [\Ibid\ I,~10].
+
+7. The center of gravity [of a circle] is the center [of that
+circle].
+
+8. The center of gravity of a cylinder [is the center of its axis].
+
+9. The center of gravity of a prism is the center of its axis.
+
+10. The center of gravity of a cone so divides its axis that the
+section at the vertex is three times as great as the remainder.
+
+11. Moreover together with the exercise here laid down I will
+make use of the following proposition:
+
+If any number of magnitudes stand in the same ratio to the
+same number of other magnitudes which correspond pair by pair,
+and if either all or some of the former magnitudes stand in any
+ratio whatever to other magnitudes, and the latter in the same ratio
+to the corresponding ones, then the sum of the magnitudes of the
+first series will bear the same ratio to the sum of those taken from
+the third series as the sum of those of the second series bears to
+the sum of those taken from the fourth series [\Title{De Conoid.}~I].
+\PageSep{10}
+
+
+\Subsection{I.}
+
+Let $\alpha\beta\gamma$ [\Fig{1}] be the segment of a parabola bounded by the
+straight line~$\alpha\gamma$ and the parabola~$\alpha\beta\gamma$. Let $\alpha\gamma$~be bisected at~$\delta$, $\delta\beta\epsilon$~being
+parallel to the diameter, and draw~$\alpha\beta$, and~$\beta\gamma$. Then the
+segment~$\alpha\beta\gamma$ will be $\frac{4}{3}$~as great as the triangle~$\alpha\beta\gamma$.
+
+From the points $\alpha$~and $\gamma$ draw $\alpha\zeta \| \delta\beta\epsilon$, and the tangent~$\gamma\zeta$;
+produce [$\gamma\beta$~to~$\kappa$, and
+make $\kappa\theta = \gamma\kappa$]. Think of~$\gamma\theta$
+as a scale-beam with
+the center at~$\kappa$ and let $\mu\xi$~be
+any straight line whatever $\| \epsilon\delta$.
+Now since $\gamma\beta\alpha$~is
+a parabola, $\gamma\zeta$~a tangent
+and $\gamma\delta$~an ordinate,
+then $\epsilon\beta = \beta\delta$; for this indeed
+has been proved in
+the Elements [\ie, of
+conic sections, cf.\  \Title{Quadr.\
+parab.}~2]. For this reason
+and because $\zeta\alpha$ and
+$\mu\xi \| \epsilon\delta$, $\mu\nu = \nu\xi$, and $\zeta\kappa = \kappa\alpha$.
+And because $\gamma\alpha : \alpha\xi = \mu\xi : \xi o$
+(for this is shown
+in a corollary, [cf.\ \Title{Quadr.\ parab.}~5]), $\gamma\alpha : \alpha\xi = \gamma\kappa : \kappa\nu$; and $\gamma\kappa = \kappa\theta$,
+therefore $\theta\kappa : \kappa\nu = \mu\xi : \xi o$.  And because $\nu$~is the center of gravity of
+the straight line~$\mu\xi$, since $\mu\nu = \nu\xi$, then if we make $\tau\eta = \xi o$ and $\theta$~as
+its center of gravity so that $\tau\theta = \theta\eta$, the straight line~$\tau\theta\eta$ will be in
+equilibrium with $\mu\xi$ in its present position because $\theta\nu$~is divided in
+inverse proportion to the weights $\tau\eta$ and~$\mu\xi$, and $\theta\kappa : \kappa\nu = \mu\xi : \eta\tau$; therefore
+$\kappa$~is the center of gravity of the combined weight of the two.
+\Figure{1}{fig01}
+In the same way all straight lines drawn in the triangle $\zeta\alpha\gamma \| \epsilon\delta$ are
+in their present positions in equilibrium with their parts cut off by
+the parabola, when these are transferred to~$\theta$, so that $\kappa$~is the center
+of gravity of the combined weight of the two. And because the
+triangle~$\gamma\zeta\alpha$ consists of the straight lines in the triangle~$\gamma\zeta\alpha$ and the
+segment~$\alpha\beta\gamma$ consists of those straight lines within the segment of
+the parabola corresponding to the straight line~$\xi o$, therefore the
+triangle~$\zeta\alpha\gamma$ in its present position will be in equilibrium at the
+point~$\kappa$ with the parabola-segment when this is transferred to~$\theta$ as
+its center of gravity, so that $\kappa$~is the center of gravity of the combined
+\PageSep{11}
+weights of the two. Now let $\gamma\kappa$ be so divided at~$\chi$ that $\gamma\kappa = 3\kappa\chi$;
+then $\chi$~will be the center of gravity of the triangle~$\alpha\zeta\gamma$, for this
+has been shown in the Statics [cf.\ \Title{De plan.\ aequil.}\ I,~15, p.~186,~3
+with Eutokios, S.~320,~5ff.]. Now the triangle~$\zeta\alpha\gamma$ in its present
+position is in equilibrium at the point~$\kappa$ with the segment~$\beta\alpha\gamma$ when
+this is transferred to~$\theta$ as its center of gravity, and the center of
+gravity of the triangle~$\zeta\alpha\gamma$ is~$\chi$; hence $\Tri \alpha\zeta\gamma : \segm \alpha\beta\gamma$ when
+transferred to~$\theta$ as its center of gravity $= \theta\kappa : \kappa\chi$. But $\theta\kappa = 3\kappa\chi$;
+hence also $\Tri \alpha\zeta\gamma = 3 \segm \alpha\beta\gamma$.  But it is also true that $\Tri \zeta\alpha\gamma = 4\triangle\alpha\beta\gamma$
+because $\zeta\kappa = \kappa\alpha$ and $\alpha\delta = \delta\gamma$; hence $\segm \alpha\beta\gamma = \frac{4}{3}$ the
+$\Tri \alpha\beta\gamma$. This is of course clear.
+
+It is true that this is not proved by what we have said here;
+but it indicates that the result is correct. And so, as we have just
+seen that it has not been proved but rather conjectured that the
+result is correct we have devised a geometrical demonstration which
+we made known some time ago and will again bring forward
+farther on.
+
+
+\Subsection{II.}
+
+That a sphere is four times as large as a cone whose base is
+equal to the largest circle of the sphere and whose altitude is equal
+to the radius of the sphere, and that a cylinder whose base is equal
+to the largest circle of the sphere and whose altitude is equal
+to the diameter of the circle is one and a half times as large as the sphere,
+may be seen by the present method in the following way:
+
+\Figure{2}{fig02}
+
+Let $\alpha\beta\gamma\delta$ [\Fig{2}] be the largest circle of a sphere and $\alpha\gamma$~and $\beta\delta$
+its diameters perpendicular to each other; let there be in the sphere
+a circle on the diameter~$\beta\delta$ perpendicular to the circle~$\alpha\beta\gamma\delta$, and
+on this perpendicular circle let there be a cone erected with its
+vertex at~$\alpha$; producing the convex surface of the cone, let it be
+cut through~$\gamma$ by a plane parallel to its base; the result will be the
+circle perpendicular to~$\alpha\gamma$ whose diameter will be~$\epsilon\zeta$. On this
+circle erect a cylinder whose axis $= \alpha\gamma$ and whose vertical boundaries
+are $\epsilon\lambda$ and~$\zeta\eta$. Produce $\gamma\alpha$ making $\alpha\theta = \gamma\alpha$ and think of~$\gamma\theta$ as
+a scale-beam with its center at~$\alpha$. Then let $\mu\nu$~be any straight line
+whatever drawn~$\| \beta\delta$ intersecting the circle~$\alpha\beta\gamma\delta$ in $\xi$~and~$o$, the
+diameter~$\alpha\gamma$ in~$\sigma$, the straight line~$\alpha\epsilon$ in~$\pi$ and $\alpha\zeta$~in~$\rho$, and on the
+straight line~$\mu\nu$ construct a plane perpendicular to~$\alpha\gamma$; it will intersect
+the cylinder in a circle on the diameter~$\mu\nu$; the sphere~$\alpha\beta\gamma\delta$, in
+a circle on the diameter~$\xi o$; the cone~$\alpha\epsilon\zeta$ in a circle on the diameter~$\pi\rho$.
+\PageSep{12}
+Now because $\gamma\alpha × \alpha\sigma = \mu\sigma × \sigma\pi$ (for $\alpha\gamma = \sigma\mu$, $\alpha\sigma = \pi\sigma$), and
+$\gamma\alpha × \alpha\sigma = \alpha\xi^{2} = \xi\sigma^{2} + \alpha\pi^{2}$ then $\mu\sigma × \sigma\pi = \xi\sigma^{2} + \sigma\pi^{2}$. Moreover, because
+$\gamma\alpha : \alpha\sigma = \mu\sigma : \sigma\pi$ and $\gamma\alpha = \alpha\theta$, therefore
+$\theta\alpha : \alpha\sigma = \mu\sigma : \sigma\pi = \mu\sigma^{2} : \mu\sigma × \sigma\pi$.
+But it has been
+proved that $\xi\sigma^{2} + \sigma\pi^{2} = \mu\sigma × \sigma\pi$;
+hence $\alpha\theta : \alpha\sigma = \mu\sigma^{2} : \xi\sigma^{2} + \sigma\pi^{2}$.
+But it is true that
+$\mu\sigma^{2} : \xi\sigma^{2} + \sigma\pi^{2} = \mu\nu^{2} : \xi\alpha^{2} + \pi\rho^{2} = {}$the
+circle in the cylinder
+whose diameter is~$\mu\nu :$
+the circle in the cone
+whose diameter is $\pi\rho + {}$the
+circle in the sphere whose
+diameter is~$\xi o$; hence $\theta\alpha : \alpha\sigma = {}$the
+circle in the cylinder~$:$
+the circle in the
+sphere~$+$ the circle in the
+cone. Therefore the circle in the cylinder in its present position
+will be in equilibrium at the point~$\alpha$ with the two circles whose
+diameters are $\xi o$ and~$\pi\rho$, if they are so transferred to~$\theta$ that $\theta$~is the
+center of gravity of both. In the same way it can be shown that
+when another straight line is drawn in the parallelogram $\xi\lambda \| \epsilon\zeta$,
+and upon it a plane is erected perpendicular to~$\alpha\gamma$, the circle
+produced in the cylinder in its present position will be in equilibrium
+at the point~$\alpha$ with the two circles produced in the sphere and the
+cone when they are transferred and so arranged on the scale-beam
+at the point~$\theta$ that $\theta$~is the center of gravity of both. Therefore
+if cylinder, sphere and cone are filled up with such circles then the
+cylinder in its present position will be in equilibrium at the point~$\alpha$
+with the sphere and the cone together, if they are transferred and
+so arranged on the scale-beam at the point~$\theta$ that $\theta$~is the center of
+gravity of both. Now since the bodies we have mentioned are in
+equilibrium, the cylinder with $\kappa$~as its center of gravity, the sphere
+and the cone transferred as we have said so that they have $\theta$~as
+center of gravity, then $\theta\alpha : \alpha\kappa = \cylinder : \sphere + \cone$. But $\theta\alpha = 2\alpha\kappa$,
+and hence also the $\cylinder = 2 × (\sphere + \cone)$. But it is also
+true that the $\cylinder = 3 \cones$ [Euclid, \Title{Elem.}\ XII,~10], hence $3 \cones = 2 \cones + 2 \spheres$. If $2 \cones$ be subtracted from both
+sides, then the cone whose axes form the triangle $\alpha\epsilon\zeta = 2 \spheres$.
+But the cone whose axes form the triangle $\alpha\epsilon\zeta = 8 \cones$ whose axes
+\PageSep{13}
+form the triangle~$\alpha\beta\delta$ because $\epsilon\zeta = 2\beta\delta$, hence the aforesaid $8 \cones = 2 \spheres$.
+Consequently the sphere whose greatest circle is~$\alpha\beta\gamma\delta$
+is four times as large as the cone with its vertex at~$\alpha$, and whose
+base is the circle on the diameter~$\beta\delta$ perpendicular to~$\alpha\gamma$.
+
+Draw the straight lines~$\phi\beta\chi$ and $\psi\delta\omega \| \alpha\gamma$ through $\beta$~and~$\delta$ in
+the parallelogram~$\lambda\zeta$ and imagine a cylinder whose bases are the
+circles on the diameters $\phi\psi$ and~$\chi\omega$ and whose axis is~$\alpha\gamma$. Now
+since the cylinder whose axes form the parallelogram~$\phi\omega$ is twice
+as large as the cylinder whose axes form the parallelogram~$\phi\delta$ and
+the latter is three times as large as the cone the triangle of whose
+axes is~$\alpha\beta\delta$, as is shown in the Elements [Euclid, \Title{Elem.}\ XII,~10], the
+cylinder whose axes form the parallelogram~$\phi\omega$ is six times as large
+as the cone whose axes form the triangle~$\alpha\beta\delta$. But it was shown
+that the sphere whose largest circle is~$\alpha\beta\gamma\delta$ is four times as large
+as the same cone, consequently the cylinder is one and one half
+times as large as the sphere,~\QED
+
+After I had thus perceived that a sphere is four times as large
+as the cone whose base is the largest circle of the sphere and whose
+altitude is equal to its radius, it occurred to me that the surface of
+a sphere is four times as great as its largest circle, in which I proceeded
+from the idea that just as a circle is equal to a triangle whose
+base is the periphery of the circle and whose altitude is equal to
+its radius, so a sphere is equal to a cone whose base is the same as
+the surface of the sphere and whose altitude is equal to the radius
+of the sphere.
+
+
+\Subsection{III.}
+
+By this method it may also be seen that a cylinder whose base
+is equal to the largest circle of a spheroid and whose altitude is
+equal to the axis of the spheroid, is one and one half times as large
+as the spheroid, and when this is recognized it becomes clear that
+if a spheroid is cut through its center by a plane perpendicular to
+its axis, one-half of the spheroid is twice as great as the cone whose
+base is that of the segment and its axis the same.
+
+For let a spheroid be cut by a plane through its axis and let
+there be in its surface an ellipse~$\alpha\beta\gamma\delta$ [\Fig{3}] whose diameters are
+$\alpha\gamma$ and~$\beta\delta$ and whose center is~$\kappa$ and let there be a circle in the
+spheroid on the diameter~$\beta\delta$ perpendicular to~$\alpha\gamma$; then imagine a
+cone whose base is the same circle but whose vertex is at~$\alpha$, and
+producing its surface, let the cone be cut by a plane through~$\gamma$
+\PageSep{14}
+parallel to the base; the intersection will be a circle perpendicular
+to~$\alpha\gamma$ with $\epsilon\zeta$~as its diameter. Now imagine a cylinder whose base
+is the same circle with the diameter~$\epsilon\zeta$ and whose axis is~$\alpha\gamma$; let $\gamma\alpha$~be
+produced so that $\alpha\theta = \gamma\alpha$; think of $\theta\gamma$ as a scale-beam with its
+center at~$\alpha$ and in the parallelogram~$\lambda\theta$ draw a straight line $\mu\nu \| \epsilon\zeta$,
+and on~$\mu\nu$ construct a plane perpendicular to~$\alpha\gamma$; this will intersect
+the cylinder in a circle whose diameter is~$\mu\nu$, the spheroid in a circle
+whose diameter is~$\xi o$ and the cone in a circle whose diameter is~$\pi\rho$.
+Because $\gamma\alpha : \alpha\sigma = \epsilon\alpha : \alpha\pi = \mu\sigma : \sigma\pi$, and $\gamma\alpha = \alpha\theta$, therefore
+$\theta\alpha : \alpha\sigma = \mu\sigma : \sigma\pi$.
+But $\mu\sigma : \sigma\pi = \mu\sigma^{2} : \mu\sigma × \sigma\pi$ and $\mu\sigma × \sigma\pi = \pi\sigma^{2} + \sigma\xi^{2}$, for
+$ \alpha\sigma × \sigma\gamma : \sigma\xi^{2} = \alpha\kappa × \kappa\gamma : \kappa\beta^{2} = \alpha\kappa^{2} : \kappa\beta^{2}$ (for both ratios are equal to the ratio
+between the diameter and the
+parameter [Apollonius, \Title{Con.}\ I,~21]) $= \alpha\sigma^{2} : \sigma\pi^{2}$ therefore
+$\alpha\sigma^{2} : \alpha\sigma × \sigma\gamma = \pi\sigma^{2} : \sigma\xi^{2} = \sigma\pi^{2} : \sigma\pi × \pi\mu$,
+consequently $\mu\pi × \pi\sigma = \sigma\xi^{2}$.
+If $\pi\sigma^{2}$~is added to both
+sides then $\mu\sigma × \sigma\pi = \pi\sigma^{2} + \sigma\xi^{2}$.
+Therefore $\theta\alpha : \alpha\sigma = \mu\sigma^{2} : \pi\sigma^{2} + \sigma\xi^{2}$.
+But $\mu\sigma^{2} : \sigma\xi^{2} + \sigma\pi^{2} = {}$the
+circle in the cylinder whose
+diameter is $\mu\nu :$~the circle with
+the diameter $\xi o + {}$the circle
+with the diameter~$\pi\rho$; hence
+the circle whose diameter is~$\mu\nu$
+will in its present position
+be in equilibrium at the point~$\alpha$
+with the two circles whose
+diameters are $\xi o$ and~$\pi\rho$ when they are transferred and so arranged
+on the scale-beam at the point~$\alpha$ that $\theta$~is the center of gravity of
+both; and $\theta$~is the center of gravity of the two circles combined
+whose diameters are $\xi o$ and~$\pi\rho$ when their position is changed,
+\Figure{3}{fig03}
+hence $\theta\alpha : \alpha\sigma = {}$the circle with the diameter~$\mu\nu :$ the two circles whose
+diameters are $\xi o$ and~$\pi\rho$. In the same way it can be shown that
+if another straight line is drawn in the parallelogram $\lambda\zeta \| \epsilon\zeta$ and on
+this line last drawn a plane is constructed perpendicular to~$\alpha\gamma$, then
+likewise the circle produced in the cylinder will in its present position
+be in equilibrium at the point~$\alpha$ with the two circles combined
+which have been produced in the spheroid and in the cone respectively
+when they are so transferred to the point~$\theta$ on the scale-beam
+that $\theta$~is the center of gravity of both. Then if cylinder, spheroid
+\PageSep{15}
+and cone are filled with such circles, the cylinder in its present position
+will be in equilibrium at the point~$\alpha$ with the spheroid~$+$ the
+cone if they are transferred and so arranged on the scale-beam at
+the point~$\alpha$ that $\theta$~is the center of gravity of both. Now $\kappa$~is the
+center of gravity of the cylinder, but $\theta$, as has been said, is the
+center of gravity of the spheroid and cone together. Therefore
+$\theta\alpha : \alpha\kappa = \cylinder : \spheroid + \cone$. But
+$\alpha\theta = 2\alpha\kappa$, hence also the $\cylinder = 2 × (\spheroid + \cone) = 2 × \spheroid + 2 × \cone$. But the
+$\cylinder = 3 × \cone$, hence $3 × \cone = 2 × \cone + 2 × \spheroid$. Subtract
+$2 × \cone$ from both sides; then a cone whose axes form the triangle
+$\alpha\epsilon\zeta = 2 × \spheroid$. But the same $\cone = 8$~cones whose axes form
+the~$\triangle\alpha\beta\delta$; hence $8$~such cones $= 2 × \spheroid$, $4 × \cone = \spheroid$;
+whence it follows that a spheroid is four times as great as a cone
+whose vertex is at~$\alpha$, and whose base is the circle on the diameter~$\beta\delta$
+perpendicular to~$\lambda\epsilon$, and one-half the spheroid is twice as great
+as the same cone.
+
+In the parallelogram~$\lambda\zeta$ draw the straight lines $\phi\chi$ and $\psi\omega \| \alpha\gamma$
+through the points $\beta$~and~$\delta$ and imagine a cylinder whose bases
+are the circles on the diameters $\phi\psi$ and~$\chi\omega$, and whose axis is~$\alpha\gamma$.
+Now since the cylinder whose axes form the parallelogram~$\phi\omega$ is
+twice as great as the cylinder whose axes form the parallelogram~$\phi\delta$
+because their bases are equal but the axis of the first is twice as
+great as the axis of the second, and since the cylinder whose axes
+form the parallelogram~$\phi\delta$ is three times as great as the cone whose
+vertex is at~$\alpha$ and whose base is the circle on the diameter~$\beta\delta$ perpendicular
+to~$\alpha\gamma$, then the cylinder whose axes form the parallelogram~$\phi\omega$
+is six times as great as the aforesaid cone. But it has
+been shown that the spheroid is four times as great as the same
+cone, hence the cylinder is one and one half times as great as the
+spheroid.~\QED
+
+
+\Subsection{IV.}
+
+That a segment of a right conoid cut by a plane perpendicular
+to its axis is one and one half times as great as the cone having
+the same base and axis as the segment, can be proved by the same
+method in the following way:
+
+Let a right conoid be cut through its axis by a plane intersecting
+the surface in a parabola~$\alpha\beta\gamma$ [\Fig{4}]; let it be also cut
+by another plane perpendicular to the axis, and let their common
+line of intersection be~$\beta\gamma$. Let the axis of the segment be~$\delta\alpha$ and
+\PageSep{16}
+let it be produced to~$\theta$ so that $\theta\alpha = \alpha\delta$. Now imagine $\delta\theta$ to be a
+scale-beam with its center at~$\alpha$; let the base of the segment be
+the circle on the diameter~$\beta\gamma$ perpendicular to~$\alpha\delta$; imagine a cone whose
+base is the circle on the diameter~$\beta\gamma$, and whose vertex is at~$\alpha$.
+Imagine also a cylinder whose base is the circle on the diameter~$\beta\gamma$
+and its axis~$\alpha\delta$, and in the parallelogram let a straight line~$\mu\nu$ be
+drawn $\| \beta\gamma$ and on~$\mu\nu$ construct a plane perpendicular to~$\alpha\delta$; it will
+intersect the cylinder in a circle whose diameter is~$\mu\nu$, and the segment
+of the right conoid in a circle whose diameter is~$\xi o$. Now
+since $\beta\alpha\gamma$~is a parabola, $\alpha\delta$~its diameter and $\xi\sigma$~and $\beta\delta$ its ordinates,
+then [\Title{Quadr.\ parab.}~3] $\delta\alpha : \alpha\sigma = \beta\delta^{2} : \xi\sigma^{2}$.  But $\delta\alpha = \alpha\theta$, therefore
+$\theta\alpha : \alpha\sigma = \mu\sigma^{2} : \sigma\xi^{2}$. But $\mu\sigma^{2} : \sigma\xi^{2} = {}$the circle in the cylinder whose
+diameter is~$\mu\nu :$ the circle in the segment of the right conoid whose
+diameter is~$\xi o$, hence $\theta\alpha : \alpha\sigma = {}$the
+circle with the diameter~$\mu\nu :$ the
+circle with the diameter~$\xi o$; therefore
+the circle in the cylinder
+\Figure{4}{fig04}
+whose diameter is~$\mu\nu$ is in its
+present position, in equilibrium
+at the point~$\alpha$ with the circle
+whose diameter is~$\xi o$ if this be
+transferred and so arranged on
+the scale-beam at~$\theta$ that $\theta$~is its
+center of gravity. And the center
+of gravity of the circle whose
+diameter is~$\mu\nu$ is at~$\sigma$, that of the
+circle whose diameter is~$\xi o$ when
+its position is changed, is~$\theta$, and we have the inverse proportion,
+$\theta\alpha : \alpha\sigma = {}$the circle with the diameter~$\mu\nu :$ the circle with the diameter~$\xi o$.
+In the same way it can be shown that if another straight line
+be drawn in the parallelogram~$\epsilon\gamma \| \beta\gamma$ the circle formed in the
+cylinder, will in its present position be in equilibrium at the point~$\alpha$
+with that formed in the segment of the right conoid if the latter
+is so transferred to~$\theta$ on the scale-beam that $\theta$~is its center of gravity.
+Therefore if the cylinder and the segment of the right conoid
+are filled up then the cylinder in its present position will be in
+equilibrium at the point~$\alpha$ with the segment of the right conoid if
+the latter is transferred and so arranged on the scale-beam at~$\theta$ that
+$\theta$~is its center of gravity. And since these magnitudes are in equilibrium
+at~$\alpha$, and $\kappa$~is the center of gravity of the cylinder, if $\alpha\delta$~is
+bisected at~$\kappa$ and $\theta$~is the center of gravity of the segment transferred
+\PageSep{17}
+to that point, then we have the inverse proportion $\theta\alpha : \alpha\kappa = \cylinder : \segment$.
+But $\theta\alpha = 2\alpha\kappa$ and also the $\cylinder = 2 × \segment$.
+But the same cylinder is $3$~times as great as the cone whose base is
+the circle on the diameter~$\beta\gamma$ and whose vertex is at~$\alpha$; therefore it
+is clear that the segment is one and one half times as great as the
+same cone.
+
+
+\Subsection{V.}
+
+That the center of gravity of a segment of a right conoid which
+is cut off by a plane perpendicular to the axis, lies on the straight
+line which is the axis of the segment divided in such a way that
+the portion at the vertex is twice as great as the remainder, may
+be perceived by our method in
+the following way:
+
+Let a segment of a right
+conoid cut off by a plane perpendicular
+to the axis be cut by
+another plane through the axis,
+and let the intersection in its surface
+be the parabola~$\alpha\beta\gamma$ [\Fig{5}]
+and let the common line of intersection
+of the plane which cut off
+the segment and of the intersecting
+plane be~$\beta\gamma$; let the axis of
+the segment and the diameter of
+the parabola~$\alpha\beta\gamma$ be~$\alpha\delta$; produce~$\delta\alpha$
+so that $\alpha\theta = \alpha\delta$ and imagine $\delta\theta$~to
+be a scale-beam with its center
+\Figure{5}{fig05}
+at~$\alpha$; then inscribe a cone in the segment with the lateral boundaries
+$\beta\alpha$ and $\alpha\gamma$ and in the parabola draw a straight line $\xi o \| \beta\gamma$ and let
+it cut the parabola in $\xi$~and~$o$ and the lateral boundaries of the cone
+in $\pi$~and~$\rho$.  Now because $\xi\sigma$~and $\beta\delta$ are drawn perpendicular to the
+diameter of the parabola, $\delta\alpha : \alpha\sigma = \beta\delta^{2} : \xi\sigma^{2}$ [\Title{Quadr.\ parab.}~3]. But
+$\delta\alpha : \alpha\sigma = \beta\delta : \pi\sigma = \beta\delta^{2} : \beta\delta × \pi\sigma$, therefore also $\beta\delta^{2} : \xi\sigma^{2} = \beta\delta^{2} : \beta\delta × \pi\sigma$.
+Consequently $\xi\sigma^{2} = \beta\delta × \pi\sigma$ and $\beta\delta : \xi\sigma = \xi\sigma : \pi\sigma$, therefore $\beta\delta : \pi\sigma = \xi\sigma^{2} : \sigma\pi^{2}$.
+But $\beta\delta : \pi\sigma = \delta\alpha : \alpha\sigma = \theta\alpha : \alpha\sigma$, therefore also $\theta\alpha : \alpha\sigma = \xi\sigma^{2} : \sigma\pi^{2}$.
+On~$\xi o$ construct a plane perpendicular to~$\alpha\delta$; this will intersect the
+segment of the right conoid in a circle whose diameter is~$\xi o$ and the
+cone in a circle whose diameter is~$\pi\rho$. Now because $\theta\alpha : \alpha\sigma = \xi\sigma^{2} : \sigma\pi^{2}$
+and $\xi\sigma^{2} : \sigma\pi^{2} = {}$the circle with the diameter~$\xi o :$ the circle with the
+\PageSep{18}
+diameter~$\pi\rho$, therefore $\theta\alpha : \alpha\sigma = {}$the circle whose diameter is~$\xi o :$ the circle
+whose diameter is~$\pi\rho$. Therefore the circle whose diameter is~$\xi o$
+will in its present position be in equilibrium at the point~$\alpha$ with the
+circle whose diameter is~$\pi\rho$ when this is so transferred to~$\theta$ on the
+scale-beam that $\theta$~is its center of gravity. Now since $\sigma$~is the center
+of gravity of the circle whose diameter is~$\xi o$ in its present position,
+and $\theta$~is the center of gravity of the circle whose diameter is~$\pi\rho$
+if its position is changed as we have said, and inversely $\theta\alpha : \alpha\sigma = {}$the
+circle with the diameter~$\xi o :$ the circle with the diameter~$\pi\rho$, then
+the circles are in equilibrium at the point~$\alpha$.  In the same way it
+can be shown that if another straight line is drawn in the parabola
+$\| \beta\gamma$ and on this line last drawn a plane is constructed perpendicular
+to~$\alpha\delta$, the circle formed in the segment of the right conoid will in
+its present position be in equilibrium at the point~$\alpha$ with the circle
+formed in the cone, if the latter is transferred and so arranged on
+the scale-beam at~$\theta$ that $\theta$~is its center of gravity.  Therefore if the
+segment and the cone are filled up with circles, all circles in the
+segment will be in their present positions in equilibrium at the point~$\alpha$
+with all circles of the cone if the latter are transferred and so arranged
+on the scale-beam at the point~$\theta$ that $\theta$~is their center of
+gravity. Therefore also the segment of the right conoid in its
+present position will be in equilibrium at the point~$\alpha$ with the cone if
+it is transferred and so arranged on the scale-beam at~$\theta$ that $\theta$~is its
+center of gravity. Now because the center of gravity of both magnitudes
+taken together is~$\alpha$, but that of the cone alone when its
+position is changed is~$\theta$, then the center of gravity of the remaining
+magnitude lies on~$\alpha\theta$ extended towards~$\alpha$ if $\alpha\kappa$~is cut off in such a
+way that $\alpha\theta : \alpha\kappa = \segment : \cone$. But the segment is one
+and one
+half the size of the cone, consequently $\alpha\theta = \frac{3}{2}\alpha\kappa$ and $\kappa$,~the center of
+gravity of the right conoid, so divides~$\alpha\delta$ that the portion at the
+vertex of the segment is twice as large as the remainder.
+
+
+\Subsection{VI.}
+
+[The center of gravity of a hemisphere is so divided on its
+axis] that the portion near the surface of the hemisphere is in the
+ratio of $5 : 3$ to the remaining portion.
+
+Let a sphere be cut by a plane through its center intersecting
+the surface in the circle~$\alpha\beta\gamma\delta$ [\Fig{6}], $\alpha\gamma$~and $\beta\delta$ being two diameters
+of the circle perpendicular to each other. Let a plane be constructed
+\PageSep{19}
+on~$\beta\delta$ perpendicular to~$\alpha\gamma$. Then imagine a cone whose base
+is the circle with the diameter~$\beta\delta$, whose vertex is at~$\alpha$ and its
+lateral boundaries are $\beta\alpha$ and~$\alpha\delta$; let $\gamma\alpha$~be produced so that $\alpha\theta = \gamma\alpha$,
+imagine the straight line~$\theta\gamma$ to be a scale-beam with its center at~$\alpha$
+and in the \Chg{semi-circle}{semicircle}~$\beta\alpha\delta$ draw a straight line $\xi o \| \beta\delta$; let it cut
+the circumference of the semicircle in $\xi$~and~$o$, the lateral boundaries
+of the cone in $\pi$~and~$\rho$, and $\alpha\gamma$~in~$\epsilon$.  On~$\xi o$ construct a plane perpendicular
+to~$\alpha\epsilon$; it will intersect the hemisphere in a circle with the
+diameter~$\xi o$, and the cone in a circle with the diameter~$\pi\rho$. Now
+because $\alpha\gamma : \alpha\epsilon = \xi\alpha^{2} : \alpha\epsilon^{2}$ and $\xi\alpha^{2} = \alpha\epsilon^{2} + \epsilon\xi^{2}$ and $\alpha\epsilon = \epsilon\pi$, therefore $\alpha\gamma : \alpha\epsilon = \xi\epsilon^{2} + \epsilon\pi^{2} : \epsilon\pi^{2}$.
+But $\xi\epsilon^{2} + \epsilon\pi^{2} : \epsilon\pi^{2} = {}$the circle with the diameter $\xi o + {}$
+the circle with the diameter~$\pi\rho :$ the circle with the diameter~$\pi\rho$, and
+$\gamma\alpha = \alpha\theta$, hence $\theta\alpha : \alpha\epsilon = {}$the circle with the diameter $\xi o + {}$the circle with
+\Figure[0.5\textwidth]{6}{fig06}
+the diameter $\pi\rho :$ circle with the diameter~$\pi\rho$.
+Therefore the two circles whose diameters
+are $\xi o$ and $\pi\rho$ in their present position are in
+equilibrium at the point~$\alpha$ with the circle
+whose diameter is~$\pi\rho$ if it is transferred and
+so arranged at~$\theta$ that $\theta$~is its center of gravity.
+Now since the center of gravity of the two
+circles whose diameters are $\xi o$ and $\pi\rho$ in their
+present position [is the point~$\epsilon$, but of the
+circle whose diameter is~$\pi\rho$ when its position
+is changed is the point~$\theta$, then $\theta\alpha : \alpha\epsilon = {}$the
+circles whose diameters are]~$\xi o$[,~$\pi\rho :$ the
+circle whose diameter is~$\pi\rho$.  In the same
+way if another straight line in the] hemisphere~$\beta\alpha\delta$
+[is drawn $\| \beta\delta$ and a plane is
+constructed] perpendicular to~[$\alpha\gamma$ the] two
+[circles produced in the cone and in the hemisphere
+are in their position] in equilibrium at~$\alpha$ [with the circle
+which is produced in the cone] if it is transferred and arranged on
+the scale at~$\theta$. [Now if] the hemisphere and the cone [are filled
+up with circles then all circles in the] hemisphere and those [in the
+cone] will in their present position be in equilibrium [with all
+circles] in the cone, if these are transferred and so arranged on the
+scale-beam at~$\theta$ that $\theta$~is their center of gravity; [therefore the
+hemisphere and cone also] are in their position [in equilibrium at
+the point~$\alpha$] with the cone if it is transferred and so arranged [on
+the scale-beam at~$\theta$] that $\theta$~is its center of gravity.
+\PageSep{20}
+
+
+\Subsection{VII.}
+
+By [this method] it may also be perceived that [any segment
+whatever] of a sphere bears the same ratio to a cone having the
+same [base] and axis [that the radius of the sphere~$+$ the axis of the
+opposite segment~$:$ the axis of the opposite segment]\dotfill \\
+and [\Fig{7}] on~$\mu\nu$ construct a plane perpendicular to~$\alpha\gamma$; it will
+intersect the cylinder in a circle whose diameter is~$\mu\nu$, the segment
+\Figure{7}{fig07}
+of the sphere in a circle whose diameter is~$\xi o$ and the cone whose
+base is the circle on the diameter~$\epsilon\zeta$ and whose vertex is at~$\alpha$ in
+a circle whose diameter
+is~$\pi\rho$. In the same way
+as before it may be
+shown that a circle whose
+diameter is~$\mu\nu$ is in its
+present position in equilibrium
+at~$\alpha$ with the two
+%[** TN: Opening bracket has no matching close bracket in the original]
+circles [whose diameters
+are $\xi o$ and $\pi\rho$ if they are
+so arranged on the scale-beam
+that $\theta$~is their center
+of gravity. [And the
+same can be proved of
+all corresponding circles.]
+Now since cylinder,
+cone, and spherical
+segment are filled up
+with such circles, the
+cylinder in its present
+position [will be in equilibrium at~$\alpha$] with the cone~$+$ the spherical
+segment if they are transferred and attached to the scale-beam at~$\theta$.
+Divide~$\alpha\eta$ at $\phi$~and $\chi$ so that $\alpha\chi = \chi\eta$ and $\eta\phi = \frac{1}{3}\alpha\phi$; then $\chi$~will be the
+center of gravity of the cylinder because it is the center of the axis~$\alpha\eta$.
+Now because the above mentioned bodies are in equilibrium
+at~$\alpha$, $\cylinder : \cone$ with the diameter of its base $\epsilon\zeta + {}$the spherical
+segment $\beta\alpha\delta = \theta\alpha : \alpha\chi$. And because $\eta\alpha = 3\eta\phi$ then [$\gamma\eta × \eta\phi$] $= \frac{1}{3}\alpha\eta × \eta\gamma$.
+Therefore also $\gamma\eta × \eta\phi = \frac{1}{3}\beta\eta^{2}$.~\dotfill
+
+
+\Subsection{VIIa.}
+
+In the same way it may be perceived that any segment of an
+ellipsoid cut off by a perpendicular plane, bears the same ratio to
+\PageSep{21}
+a cone having the same base and the same axis, as half of the axis
+of the ellipsoid~$+$ the axis of the opposite segment bears to the axis
+of the opposite segment.~\dotfill
+
+\Subsection{VIII.}
+
+\noindent\dotfill\\
+produce $\alpha\gamma$ [\Fig{8}] making $\alpha\theta = \alpha\gamma$ and $\gamma\xi = {}$the radius of the sphere;
+imagine $\gamma\theta$~to be a scale-beam with a center at~$\alpha$, and in the plane
+\Figure[0.5\textwidth]{8}{fig08}
+cutting off the segment inscribe a circle with its center at~$\eta$ and its
+radius $= \alpha\eta$; on this circle construct a cone with its vertex at~$\alpha$ and
+its lateral boundaries $\alpha\epsilon$ and~$\alpha\zeta$. Then draw a straight line $\kappa\lambda \| \epsilon\zeta$;
+let it cut the circumference of the
+segment at $\kappa$~and~$\lambda$, the lateral boundaries
+of the $\cone \alpha\epsilon\zeta$ at $\rho$~and~$o$ and $\alpha\gamma$
+at~$\pi$. Now because $\alpha\gamma : \alpha\pi = \alpha\kappa^{2} : \alpha\pi^{2}$
+and $\kappa\alpha^{2} = \alpha\pi^{2} + \pi\kappa^{2}$ and $\alpha\pi^{2} = \pi o^{2}$ (since
+also $\alpha\eta^{2} = \epsilon\eta^{2}$), then $\gamma\alpha : \alpha\pi = \kappa\pi^{2} + \pi o^{2} : o\pi^{2}$.
+But $\kappa\pi^{2} + \pi o^{2} : \pi o^{2} = {}$the circle
+with the diameter $\kappa\lambda + {}$the circle with
+the diameter $o\rho :$ the circle with the diameter~$o\rho$
+and $\gamma\alpha = \alpha\theta$; therefore
+$\theta\alpha : \alpha\pi = {}$the circle with the diameter
+$\kappa\lambda + {}$the circle with the diameter $o\rho :$
+the circle with the diameter~$o\rho$. Now
+since the circle with the diameter $\kappa\lambda + {}$
+the circle with the diameter $o\rho :$ the
+circle with the diameter $o\rho = \alpha\theta : \pi\alpha$,
+let the circle with the diameter~$o\rho$ be
+transferred and so arranged on the
+scale-beam at~$\theta$ that $\theta$~is its center of
+gravity; then $\theta\alpha : \alpha\pi = {}$the circle with
+the diameter $\kappa\lambda + {}$the circle with the diameter~$o\rho$ in their present
+positions~$:$ the circle with the diameter~$o\rho$ if it is transferred and
+so arranged on the scale-beam at~$\theta$ that $\theta$~is its center of gravity.
+Therefore the circles in the $\segment \beta\alpha\delta$ and in the $\cone \alpha\epsilon\zeta$ are in
+equilibrium at~$\alpha$ with that in the $\cone \alpha\epsilon\zeta$. And in the same way
+all circles in the $\segment \beta\alpha\delta$ and in the $\cone \alpha\epsilon\zeta$ in their present
+positions are in equilibrium at the point~$\alpha$ with all circles in the
+$\cone \alpha\epsilon\zeta$ if they are transferred and so arranged on the scale-beam
+at~$\theta$ that $\theta$~is their center of gravity; then also the spherical $\segment \alpha\beta\delta$
+\PageSep{22}
+and the $\cone \alpha\epsilon\zeta$ in their present positions are in equilibrium
+at the point~$\alpha$ with the $\cone \epsilon\alpha\zeta$ if it is transferred and so arranged
+on the scale-beam at~$\theta$ that $\theta$~is its center of gravity. Let the $\cylinder \mu\nu$
+equal the cone whose base is the circle with the diameter~$\epsilon\zeta$
+and whose vertex is at~$\alpha$ and let $\alpha\eta$~be so divided at~$\phi$ that $\alpha\eta = 4\phi\eta$;
+then $\phi$~is the center of gravity of the $\cone \epsilon\alpha\zeta$ as has been previously
+proved. Moreover let the $\cylinder \mu\nu$ be so cut by a perpendicularly
+intersecting plane that the $\cylinder \mu$ is in equilibrium with the
+$\cone \epsilon\alpha\zeta$. Now since the $\segment \alpha\beta\delta + {}$the $\cone \epsilon\alpha\zeta$ in their present
+positions are in equilibrium at~$\alpha$ with the $\cone \epsilon\alpha\zeta$ if it is transferred
+and so arranged on the scale-beam at~$\theta$ that $\theta$~is its center
+of gravity, and $\cylinder \mu\nu = \cone \epsilon\alpha\zeta$ and the two cylinders $\mu + \nu$
+are moved to~$\theta$ and $\mu\nu$~is in equilibrium with both bodies, then will
+also the $\cylinder \nu$ be in equilibrium with the segment of the sphere
+at the point~$\alpha$. And since the spherical $\segment \beta\alpha\delta :$ the cone whose
+base is the circle with the diameter~$\beta\delta$, and whose vertex is at $\alpha = \xi\eta : \eta\gamma$
+(for this has previously been proved [\Title{De sph.\ et cyl.}\ II,~2
+Coroll.])\ and $\cone \beta\alpha\delta : \cone \epsilon\alpha\zeta = {}$the circle with the diameter
+$\beta\delta :$ the circle with the diameter $\epsilon\zeta = \beta\eta^{2} : \eta\epsilon^{2}$, and $\beta\eta^{2} = \gamma\eta × \eta\alpha$,
+$\eta\epsilon^{2} = \eta\alpha^{2}$, and $\gamma\eta × \eta\alpha : \eta\alpha^{2} = \gamma\eta : \eta\alpha$, therefore $\cone \beta\alpha\delta : \cone \epsilon\alpha\zeta = \gamma\eta : \eta\alpha$.
+But we have shown that $\cone \beta\alpha\delta : \segment \beta\alpha\delta = \gamma\eta : \eta\xi$,
+hence {\selectlanguage{greek}di' \~isou} $\segment \beta\alpha\delta : \cone \epsilon\alpha\zeta = \xi\eta : \eta\alpha$. And because $\alpha\chi : \chi\eta = \eta\alpha + 4\eta\gamma : \alpha\eta + 2\eta\gamma$
+so inversely $\eta\chi : \chi\alpha = 2\gamma\eta + \eta\alpha : 4\gamma\eta + \eta\alpha$ and by addition
+$\eta\alpha : \alpha\chi = 6\gamma\eta + 2\eta\alpha : \eta\alpha + 4\eta\gamma$. But $\eta\xi = \frac{1}{4} (6\eta\gamma + 2\eta\alpha)$ and $\gamma\phi = \frac{1}{4} (4\eta\gamma + \eta\alpha)$;
+for that is evident. Hence $\eta\alpha : \alpha\chi = \xi\eta : \gamma\phi$, consequently
+also $\xi\eta : \eta\alpha = \gamma\phi : \chi\alpha$. But it was also demonstrated that $\xi\eta : \eta\alpha = {}$the
+segment whose vertex is at~$\alpha$ and whose base is the circle with the
+diameter $\beta\delta :$ the cone whose vertex is at~$\alpha$ and whose base is the circle with the
+diameter~$\epsilon\zeta$; hence $\segment \beta\alpha\delta : \cone \epsilon\alpha\zeta = \gamma\phi : \chi\alpha$.
+And since the $\cylinder \mu$ is in equilibrium with the $\cone \epsilon\alpha\zeta$ at~$\alpha$, and $\theta$~is
+the center of gravity of the cylinder while $\phi$~is that of the $\cone \epsilon\alpha\zeta$,
+then $\cone \epsilon\alpha\zeta : \cylinder \mu = \theta\alpha : \alpha\phi = \gamma\alpha : \alpha\phi$. But $\cylinder \mu\nu = \cone \epsilon\alpha\zeta$;
+hence by subtraction, $\cylinder \mu : \cylinder \nu = \alpha\phi : \gamma\phi$. And
+$\cylinder \mu\nu = \cone \epsilon\alpha\zeta$; hence $\cone \epsilon\alpha\zeta : \cylinder \nu = \gamma\alpha : \gamma\phi = \theta\alpha : \gamma\phi$.
+But it was also demonstrated that $\segment \beta\alpha\delta : \cone \epsilon\alpha\zeta = \gamma\phi : \chi\alpha$;
+hence {\selectlanguage{greek}di' \~isou} $\segment \beta\alpha\delta : \cylinder \nu = \zeta\alpha : \alpha\chi$. And it was demonstrated
+that $\segment \beta\alpha\delta$ is in equilibrium at~$\alpha$ with the cylinder~$\nu$
+and $\theta$~is the center of gravity of the $\cylinder \nu$, consequently the
+point~$\chi$ is also the center of gravity of the $\segment \beta\alpha\delta$.
+
+
+\Subsection{IX.}
+
+In a similar way it can also be perceived that the center of gravity
+of any segment of an ellipsoid lies on the straight line which is
+the axis of the segment so divided that the portion at the vertex
+of the segment bears the same ratio to the remaining portion as the
+axis of the segment${} + 4$~times the axis of the opposite segment
+bears to the axis of the segment~$+$ twice the axis of the opposite
+segment.
+
+
+\Subsection{X.}
+
+It can also be seen by this method that [a segment of a hyperboloid]
+bears the same ratio to a cone having the same base and axis
+as the segment, that the axis of the segment${} + 3$~times the addition
+to the axis bears to the axis of the segment of the hyperboloid~$+$ twice
+its addition [\Title{De Conoid.}~25]; and that the center of gravity of the
+hyperboloid so divides the axis that the part at the vertex bears the
+same ratio to the rest that three times the axis~$+$ eight times the
+addition to the axis bears to the axis of the hyperboloid${} + 4$~times
+the addition to the axis, and many other points which I will leave
+aside since the method has been made clear by the examples already
+given and only the demonstrations of the above given theorems remain
+to be stated.
+
+
+\Subsection{XI.}
+
+When in a perpendicular prism with square bases a cylinder is
+inscribed whose bases lie in opposite squares and whose curved
+surface touches the four other parallelograms, and when a plane is
+passed through the center of the circle which is the base of the
+cylinder and one side of the opposite square, then the body which
+is cut off by this plane [from the cylinder] will be $\frac{1}{6}$~of the entire
+prism. This can be perceived through the present method and
+when it is so warranted we will pass over to the geometrical proof
+of it.
+
+Imagine a perpendicular prism with square bases and a cylinder
+inscribed in the prism in the way we have described. Let the
+prism be cut through the axis by a plane perpendicular to the plane
+which cuts off the section of the cylinder; this will intersect the
+prism containing the cylinder in the parallelogram~$\alpha\beta$ [\Fig{9}] and
+the common intersecting line of the plane which cuts off the section
+of the cylinder and the plane lying through the axis perpendicular
+\PageSep{24}
+to the one cutting off the section of the cylinder will be~$\beta\gamma$; let the
+axis of the cylinder and the prism be~$\gamma\delta$ which is bisected at right
+angles by~$\epsilon\zeta$ and on~$\epsilon\zeta$ let a plane be constructed perpendicular to~$\gamma\delta$.
+This will intersect the prism in a square and the cylinder in a
+circle.
+
+\Figures{9}{fig09}{10}{fig10}
+
+Now let the intersection of the prism be the square~$\mu\nu$ [\Fig{10}],
+that of the cylinder, the circle~$\xi o\pi\rho$ and let the circle touch the sides
+of the square at the points $\xi$,~$o$,~$\pi$ and~$\rho$; let the common line of
+intersection of the plane cutting off the cylinder-section and that
+passing through~$\epsilon\zeta$ perpendicular to the axis of the cylinder, be~$\kappa\lambda$;
+this line is bisected by~$\pi\theta\xi$. In the semicircle~$o\pi\rho$ draw a straight
+line~$\sigma\tau$ perpendicular to~$\pi\chi$, on~$\sigma\tau$ construct a plane perpendicular
+to~$\xi\pi$ and produce it to both sides of the plane enclosing the circle~$\xi o\pi\rho$;
+this will intersect the half-cylinder whose base is the semicircle~$o\pi\rho$
+and whose altitude is the axis of the prism, in a parallelogram
+one side of which $= \sigma\tau$ and the other~$=$ the vertical boundary
+of the cylinder, and it will intersect the cylinder-section likewise
+in a parallelogram of which one side is~$\sigma\tau$ and the other~$\mu\nu$ [\Fig{9}];
+and accordingly $\mu\nu$~will be drawn in the parallelogram $\delta\epsilon \| \beta\omega$ and
+will cut off $\epsilon\iota = \pi\chi$. Now because $\epsilon\gamma$~is a parallelogram and $\nu\iota \| \theta\gamma$,
+and $\epsilon\theta$~and $\beta\gamma$ cut the parallels, therefore $\epsilon\theta : \theta\iota = \omega\gamma : \gamma\nu = \beta\omega : \upsilon\nu$. But
+$\beta\omega : \upsilon\nu = $ parallelogram in the half-cylinder~$:$ parallelogram in the
+cylinder-section, therefore both parallelograms have the same side~$\sigma\tau$;
+and $\epsilon\theta = \theta\pi$, $\iota\theta = \chi\theta$; and since $\pi\theta = \theta\xi$ therefore $\theta\xi : \theta\chi = $ parallelogram
+in half-cylinder~$:$ parallelogram in the cylinder-section.
+Imagine the parallelogram in the cylinder-section transferred and
+so brought to~$\xi$ that $\xi$~is its center of gravity, and further imagine
+\PageSep{25}
+$\pi\xi$~to be a scale-beam with its center at~$\theta$; then the parallelogram in
+the half-cylinder in its present position is in equilibrium at the
+point~$\theta$ with the parallelogram in the cylinder-section when it is transferred
+and so arranged on the scale-beam at~$\xi$ that $\xi$~is its center of
+gravity. And since $\chi$~is the center of gravity in the parallelogram
+in the half-cylinder, and $\xi$~that of the parallelogram in the cylinder-section
+when its position is changed, and $\xi\theta : \theta\chi =$ the parallelogram
+whose center of gravity is $\chi :$ the parallelogram whose center of
+gravity is~$\xi$, then the parallelogram whose center of gravity is~$\chi$
+will be in equilibrium at~$\theta$ with the parallelogram whose center of
+gravity is~$\xi$. In this way it can be proved that if another straight
+line is drawn in the semicircle~$o\pi\rho$ perpendicular to~$\pi\theta$ and on this
+straight line a plane is constructed perpendicular to~$\pi\theta$ and is produced
+towards both sides of the plane in which the circle~$\xi o\pi\rho$ lies,
+then the parallelogram formed in the half-cylinder in its present
+position will be in equilibrium at the point~$\theta$ with the parallelogram
+formed in the cylinder-section if this is transferred and so arranged
+on the scale-beam at~$\xi$ that $\xi$~is its center of gravity; therefore also
+all parallelograms in the half-cylinder in their present positions will
+be in equilibrium at the point~$\theta$ with all parallelograms of the
+cylinder-section if they are transferred and attached to the scale-beam
+at the point~$\xi$; consequently also the half-cylinder in its present
+position will be in equilibrium at the point~$\theta$ with the cylinder-section
+if it is transferred and so arranged on the scale-beam at~$\xi$
+that $\xi$~is its center of gravity.
+
+
+\Subsection{XII.}
+
+Let the parallelogram~$\mu\nu$ be perpendicular to the axis [of the
+circle]~$\xi o$ [$\pi\rho$] [\Fig{11}]. Draw $\theta\mu$~and
+$\theta\eta$ and erect upon them two planes perpendicular
+to the plane in which the
+semicircle~$o\pi\rho$ lies and extend these
+planes on both sides. The result is a
+prism whose base is a triangle similar
+to~$\theta\mu\eta$ and whose altitude is equal to
+the axis of the cylinder, and this prism
+is $\frac{1}{4}$~of the entire prism which contains
+the cylinder. In the semicircle~$o\pi\rho$ and
+in the square~$\mu\nu$ draw two straight lines
+$\kappa\lambda$ and $\tau\upsilon$ at equal distances from~$\pi\xi$;
+\Figure{11}{fig11}
+these will cut the circumference of the semicircle~$o\pi\rho$ at the points
+\PageSep{26}
+$\kappa$~and~$\tau$, the diameter~$o\rho$ at $\sigma$~and~$\zeta$ and the straight lines $\theta\eta$ and $\theta\mu$
+at $\phi$~and~$\chi$. Upon $\kappa\lambda$~and $\tau\upsilon$ construct two planes perpendicular
+to~$o\rho$ and extend them towards both sides of the plane in which lies
+the circle~$\xi o\pi\rho$; they will intersect the half-cylinder whose base is
+the semicircle~$o\pi\rho$ and whose altitude is that of the cylinder, in a
+parallelogram one side of which $= \kappa\sigma$ and the other~$=$ the axis of
+the cylinder; and they will intersect the prism~$\theta\eta\mu$ likewise in a
+parallelogram one side of which is equal to~$\lambda\chi$ and the other equal
+to the axis, and in the same way the half-cylinder in a parallelogram
+one side of which $= \tau\zeta$ and the other~$=$ the axis of the cylinder, and
+the prism in a parallelogram one side of which $= \nu\phi$ and the other~$=$
+the axis of the cylinder.~\dotfill
+
+
+\Subsection{XIII.}
+
+Let the square~$\alpha\beta\gamma\delta$ [\Fig{12}] be the base of a perpendicular
+prism with square bases and let a cylinder be inscribed in the prism
+whose base is the circle~$\epsilon\zeta\eta\theta$ which
+touches the sides of the parallelogram~$\alpha\beta\gamma\delta$
+at $\epsilon$,~$\zeta$,~$\eta$, and~$\theta$. Pass a plane
+through its center and the side in the
+square opposite the square~$\alpha\beta\gamma\delta$ corresponding
+to the side~$\gamma\delta$; this will cut
+off from the whole prism a second prism
+which is $\frac{1}{4}$~the size of the whole prism
+and which will be bounded by three
+parallelograms and two opposite triangles.
+In the semicircle~$\epsilon\zeta\eta$ describe
+a parabola whose origin is~$\eta\epsilon$ and whose
+axis is~$\zeta\kappa$, and in the parallelogram~$\delta\eta$ draw $\mu\nu \| \kappa\zeta$; this will cut
+the circumference of the semicircle at~$\xi$, the parabola at~$\lambda$, and
+$\mu\nu × \nu\lambda = \nu\zeta^{2}$ (for this is evident [Apollonios, \Title{Con.}\ I,~11]). Therefore
+$\mu\nu : \nu\lambda = \kappa\eta^{2} : \lambda\sigma^{2}$. Upon~$\mu\nu$ construct a plane parallel to~$\epsilon\eta$; this will
+intersect the prism cut off from the whole prism in a right-angled
+triangle one side of which is~$\mu\nu$ and the other a straight line in the
+plane upon~$\gamma\delta$ perpendicular to~$\gamma\delta$ at~$\nu$ and equal to the axis of the
+cylinder, but whose hypotenuse is in the intersecting plane. It will
+\Figure{12}{fig12}
+intersect the portion which is cut off from the cylinder by the plane
+passed through $\epsilon\eta$~and the side of the square opposite the side~$\gamma\delta$
+in a right-angled triangle one side of which is~$\mu\xi$ and the other
+a straight line drawn in the surface of the cylinder perpendicular
+\PageSep{27}
+to the plane~$\kappa\nu$, and the hypotenuse \dotfill \\
+and all the triangles in the prism~$:$ all the triangles in the cylinder-section~$=$
+all the straight lines in the parallelogram~$\delta\eta :$ all the straight
+lines between the parabola and the straight line~$\epsilon\eta$. And the prism
+consists of the triangles in the prism, the cylinder-section of those
+in the cylinder-section, the parallelogram~$\delta\eta$ of the straight lines
+in the parallelogram $\delta\eta \| \kappa\zeta$ and the segment of the parabola of the
+straight lines cut off by the parabola and the straight line~$\epsilon\eta$; hence
+prism~$:$ cylinder-section~$=$ parallelogram $\eta\delta : \segment \epsilon\zeta\eta$ that is
+bounded by the parabola and the straight line~$\epsilon\eta$. But the parallelogram
+$\delta\eta = \frac{3}{2}$~the segment bounded by the parabola and the straight
+line~$\epsilon\eta$ as indeed has been shown in the previously published work,
+hence also the prism is equal to one and one half times the cylinder-section.
+Therefore when the cylinder-section $= 2$, the prism $= 3$ and
+the whole prism containing the cylinder equals~$12$, because it is four
+times the size of the other prism; hence the cylinder-section is equal
+to $\frac{1}{6}$~of the prism,~\QED
+
+
+\Subsection{XIV.}
+
+[Inscribe a cylinder in] a perpendicular prism with square
+bases [and let it be cut by a plane passed through the center of the
+base of the cylinder and one side of the opposite square.] Then this
+plane will cut off a prism from the whole prism and a portion of
+the cylinder from the cylinder. It may be proved that the portion
+cut off from the cylinder by the plane is one-sixth of the whole
+prism. But first we will prove that it is possible to inscribe a solid
+figure in the cylinder-section and to circumscribe another composed
+of prisms of equal altitude and with similar triangles as bases, so
+that the circumscribed figure exceeds the inscribed less than any
+given magnitude.~\dotfill
+
+But it has been shown that the prism cut off by the inclined plane
+$< \frac{3}{2}$ the body inscribed in the cylinder-section. Now the prism
+cut off by the inclined plane~$:$ the body inscribed in the cylinder-section~$=$
+parallelogram $\delta\eta :$ the parallelograms which are inscribed
+in the segment bounded by the parabola and the straight line~$\epsilon\eta$.
+Hence the parallelogram $\delta\eta < \frac{3}{2}$~the parallelograms in the segment
+bounded by the parabola and the straight line~$\epsilon\eta$. But this is impossible
+because we have shown elsewhere that the parallelogram~$\delta\eta$
+is one and one half times the segment bounded by the parabola
+and the straight line~$\epsilon\eta$, consequently is~\dotfill \\
+not greater~\dotfill\null
+
+And all prisms in the prism cut off by the inclined plane~$:$ all
+prisms in the figure described around the cylinder-section~$=$ all
+parallelograms in the parallelogram $\delta\eta :$ all parallelograms
+in the figure which is described around the segment bounded by the
+parabola and the straight line~$\epsilon\eta$, \ie, the prism cut off by the inclined
+plane~$:$ the figure described around the cylinder-section~$=$
+parallelogram $\delta\eta :$ the figure bounded by the parabola and the
+straight line~$\epsilon\eta$. But the prism cut off by the inclined plane is
+greater than one and one half times the solid figure circumscribed
+around the cylinder-section~\dotfill
+
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%% GUTENBERG LICENSE %%%%%%%%%%%%%%%%%%%%%%%%%%
+\BackMatter
+\PGLicense
+\begin{PGtext}
+End of the Project Gutenberg EBook of Geometrical Solutions Derived from
+Mechanics, by Archimedes
+
+*** END OF THIS PROJECT GUTENBERG EBOOK GEOMETRICAL SOLUTIONS ***
+
+***** This file should be named 7825-pdf.pdf or 7825-pdf.zip *****
+This and all associated files of various formats will be found in:
+        http://www.gutenberg.org/7/8/2/7825/
+
+Produced by Gordon Keener
+
+Updated editions will replace the previous one--the old editions
+will be renamed.
+
+Creating the works from public domain print editions means that no
+one owns a United States copyright in these works, so the Foundation
+(and you!) can copy and distribute it in the United States without
+permission and without paying copyright royalties.  Special rules,
+set forth in the General Terms of Use part of this license, apply to
+copying and distributing Project Gutenberg-tm electronic works to
+protect the PROJECT GUTENBERG-tm concept and trademark.  Project
+Gutenberg is a registered trademark, and may not be used if you
+charge for the eBooks, unless you receive specific permission.  If you
+do not charge anything for copies of this eBook, complying with the
+rules is very easy.  You may use this eBook for nearly any purpose
+such as creation of derivative works, reports, performances and
+research.  They may be modified and printed and given away--you may do
+practically ANYTHING with public domain eBooks.  Redistribution is
+subject to the trademark license, especially commercial
+redistribution.
+
+
+
+*** START: FULL LICENSE ***
+
+THE FULL PROJECT GUTENBERG LICENSE
+PLEASE READ THIS BEFORE YOU DISTRIBUTE OR USE THIS WORK
+
+To protect the Project Gutenberg-tm mission of promoting the free
+distribution of electronic works, by using or distributing this work
+(or any other work associated in any way with the phrase "Project
+Gutenberg"), you agree to comply with all the terms of the Full Project
+Gutenberg-tm License available with this file or online at
+  www.gutenberg.org/license.
+
+
+Section 1.  General Terms of Use and Redistributing Project Gutenberg-tm
+electronic works
+
+1.A.  By reading or using any part of this Project Gutenberg-tm
+electronic work, you indicate that you have read, understand, agree to
+and accept all the terms of this license and intellectual property
+(trademark/copyright) agreement.  If you do not agree to abide by all
+the terms of this agreement, you must cease using and return or destroy
+all copies of Project Gutenberg-tm electronic works in your possession.
+If you paid a fee for obtaining a copy of or access to a Project
+Gutenberg-tm electronic work and you do not agree to be bound by the
+terms of this agreement, you may obtain a refund from the person or
+entity to whom you paid the fee as set forth in paragraph 1.E.8.
+
+1.B.  "Project Gutenberg" is a registered trademark.  It may only be
+used on or associated in any way with an electronic work by people who
+agree to be bound by the terms of this agreement.  There are a few
+things that you can do with most Project Gutenberg-tm electronic works
+even without complying with the full terms of this agreement.  See
+paragraph 1.C below.  There are a lot of things you can do with Project
+Gutenberg-tm electronic works if you follow the terms of this agreement
+and help preserve free future access to Project Gutenberg-tm electronic
+works.  See paragraph 1.E below.
+
+1.C.  The Project Gutenberg Literary Archive Foundation ("the Foundation"
+or PGLAF), owns a compilation copyright in the collection of Project
+Gutenberg-tm electronic works.  Nearly all the individual works in the
+collection are in the public domain in the United States.  If an
+individual work is in the public domain in the United States and you are
+located in the United States, we do not claim a right to prevent you from
+copying, distributing, performing, displaying or creating derivative
+works based on the work as long as all references to Project Gutenberg
+are removed.  Of course, we hope that you will support the Project
+Gutenberg-tm mission of promoting free access to electronic works by
+freely sharing Project Gutenberg-tm works in compliance with the terms of
+this agreement for keeping the Project Gutenberg-tm name associated with
+the work.  You can easily comply with the terms of this agreement by
+keeping this work in the same format with its attached full Project
+Gutenberg-tm License when you share it without charge with others.
+
+1.D.  The copyright laws of the place where you are located also govern
+what you can do with this work.  Copyright laws in most countries are in
+a constant state of change.  If you are outside the United States, check
+the laws of your country in addition to the terms of this agreement
+before downloading, copying, displaying, performing, distributing or
+creating derivative works based on this work or any other Project
+Gutenberg-tm work.  The Foundation makes no representations concerning
+the copyright status of any work in any country outside the United
+States.
+
+1.E.  Unless you have removed all references to Project Gutenberg:
+
+1.E.1.  The following sentence, with active links to, or other immediate
+access to, the full Project Gutenberg-tm License must appear prominently
+whenever any copy of a Project Gutenberg-tm work (any work on which the
+phrase "Project Gutenberg" appears, or with which the phrase "Project
+Gutenberg" is associated) is accessed, displayed, performed, viewed,
+copied or distributed:
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+1.E.2.  If an individual Project Gutenberg-tm electronic work is derived
+from the public domain (does not contain a notice indicating that it is
+posted with permission of the copyright holder), the work can be copied
+and distributed to anyone in the United States without paying any fees
+or charges.  If you are redistributing or providing access to a work
+with the phrase "Project Gutenberg" associated with or appearing on the
+work, you must comply either with the requirements of paragraphs 1.E.1
+through 1.E.7 or obtain permission for the use of the work and the
+Project Gutenberg-tm trademark as set forth in paragraphs 1.E.8 or
+1.E.9.
+
+1.E.3.  If an individual Project Gutenberg-tm electronic work is posted
+with the permission of the copyright holder, your use and distribution
+must comply with both paragraphs 1.E.1 through 1.E.7 and any additional
+terms imposed by the copyright holder.  Additional terms will be linked
+to the Project Gutenberg-tm License for all works posted with the
+permission of the copyright holder found at the beginning of this work.
+
+1.E.4.  Do not unlink or detach or remove the full Project Gutenberg-tm
+License terms from this work, or any files containing a part of this
+work or any other work associated with Project Gutenberg-tm.
+
+1.E.5.  Do not copy, display, perform, distribute or redistribute this
+electronic work, or any part of this electronic work, without
+prominently displaying the sentence set forth in paragraph 1.E.1 with
+active links or immediate access to the full terms of the Project
+Gutenberg-tm License.
+
+1.E.6.  You may convert to and distribute this work in any binary,
+compressed, marked up, nonproprietary or proprietary form, including any
+word processing or hypertext form.  However, if you provide access to or
+distribute copies of a Project Gutenberg-tm work in a format other than
+"Plain Vanilla ASCII" or other format used in the official version
+posted on the official Project Gutenberg-tm web site (www.gutenberg.org),
+you must, at no additional cost, fee or expense to the user, provide a
+copy, a means of exporting a copy, or a means of obtaining a copy upon
+request, of the work in its original "Plain Vanilla ASCII" or other
+form.  Any alternate format must include the full Project Gutenberg-tm
+License as specified in paragraph 1.E.1.
+
+1.E.7.  Do not charge a fee for access to, viewing, displaying,
+performing, copying or distributing any Project Gutenberg-tm works
+unless you comply with paragraph 1.E.8 or 1.E.9.
+
+1.E.8.  You may charge a reasonable fee for copies of or providing
+access to or distributing Project Gutenberg-tm electronic works provided
+that
+
+- You pay a royalty fee of 20% of the gross profits you derive from
+     the use of Project Gutenberg-tm works calculated using the method
+     you already use to calculate your applicable taxes.  The fee is
+     owed to the owner of the Project Gutenberg-tm trademark, but he
+     has agreed to donate royalties under this paragraph to the
+     Project Gutenberg Literary Archive Foundation.  Royalty payments
+     must be paid within 60 days following each date on which you
+     prepare (or are legally required to prepare) your periodic tax
+     returns.  Royalty payments should be clearly marked as such and
+     sent to the Project Gutenberg Literary Archive Foundation at the
+     address specified in Section 4, "Information about donations to
+     the Project Gutenberg Literary Archive Foundation."
+
+- You provide a full refund of any money paid by a user who notifies
+     you in writing (or by e-mail) within 30 days of receipt that s/he
+     does not agree to the terms of the full Project Gutenberg-tm
+     License.  You must require such a user to return or
+     destroy all copies of the works possessed in a physical medium
+     and discontinue all use of and all access to other copies of
+     Project Gutenberg-tm works.
+
+- You provide, in accordance with paragraph 1.F.3, a full refund of any
+     money paid for a work or a replacement copy, if a defect in the
+     electronic work is discovered and reported to you within 90 days
+     of receipt of the work.
+
+- You comply with all other terms of this agreement for free
+     distribution of Project Gutenberg-tm works.
+
+1.E.9.  If you wish to charge a fee or distribute a Project Gutenberg-tm
+electronic work or group of works on different terms than are set
+forth in this agreement, you must obtain permission in writing from
+both the Project Gutenberg Literary Archive Foundation and Michael
+Hart, the owner of the Project Gutenberg-tm trademark.  Contact the
+Foundation as set forth in Section 3 below.
+
+1.F.
+
+1.F.1.  Project Gutenberg volunteers and employees expend considerable
+effort to identify, do copyright research on, transcribe and proofread
+public domain works in creating the Project Gutenberg-tm
+collection.  Despite these efforts, Project Gutenberg-tm electronic
+works, and the medium on which they may be stored, may contain
+"Defects," such as, but not limited to, incomplete, inaccurate or
+corrupt data, transcription errors, a copyright or other intellectual
+property infringement, a defective or damaged disk or other medium, a
+computer virus, or computer codes that damage or cannot be read by
+your equipment.
+
+1.F.2.  LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the "Right
+of Replacement or Refund" described in paragraph 1.F.3, the Project
+Gutenberg Literary Archive Foundation, the owner of the Project
+Gutenberg-tm trademark, and any other party distributing a Project
+Gutenberg-tm electronic work under this agreement, disclaim all
+liability to you for damages, costs and expenses, including legal
+fees.  YOU AGREE THAT YOU HAVE NO REMEDIES FOR NEGLIGENCE, STRICT
+LIABILITY, BREACH OF WARRANTY OR BREACH OF CONTRACT EXCEPT THOSE
+PROVIDED IN PARAGRAPH 1.F.3.  YOU AGREE THAT THE FOUNDATION, THE
+TRADEMARK OWNER, AND ANY DISTRIBUTOR UNDER THIS AGREEMENT WILL NOT BE
+LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
+INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+1.F.3.  LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
+defect in this electronic work within 90 days of receiving it, you can
+receive a refund of the money (if any) you paid for it by sending a
+written explanation to the person you received the work from.  If you
+received the work on a physical medium, you must return the medium with
+your written explanation.  The person or entity that provided you with
+the defective work may elect to provide a replacement copy in lieu of a
+refund.  If you received the work electronically, the person or entity
+providing it to you may choose to give you a second opportunity to
+receive the work electronically in lieu of a refund.  If the second copy
+is also defective, you may demand a refund in writing without further
+opportunities to fix the problem.
+
+1.F.4.  Except for the limited right of replacement or refund set forth
+in paragraph 1.F.3, this work is provided to you 'AS-IS', WITH NO OTHER
+WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PURPOSE.
+
+1.F.5.  Some states do not allow disclaimers of certain implied
+warranties or the exclusion or limitation of certain types of damages.
+If any disclaimer or limitation set forth in this agreement violates the
+law of the state applicable to this agreement, the agreement shall be
+interpreted to make the maximum disclaimer or limitation permitted by
+the applicable state law.  The invalidity or unenforceability of any
+provision of this agreement shall not void the remaining provisions.
+
+1.F.6.  INDEMNITY - You agree to indemnify and hold the Foundation, the
+trademark owner, any agent or employee of the Foundation, anyone
+providing copies of Project Gutenberg-tm electronic works in accordance
+with this agreement, and any volunteers associated with the production,
+promotion and distribution of Project Gutenberg-tm electronic works,
+harmless from all liability, costs and expenses, including legal fees,
+that arise directly or indirectly from any of the following which you do
+or cause to occur: (a) distribution of this or any Project Gutenberg-tm
+work, (b) alteration, modification, or additions or deletions to any
+Project Gutenberg-tm work, and (c) any Defect you cause.
+
+
+Section  2.  Information about the Mission of Project Gutenberg-tm
+
+Project Gutenberg-tm is synonymous with the free distribution of
+electronic works in formats readable by the widest variety of computers
+including obsolete, old, middle-aged and new computers.  It exists
+because of the efforts of hundreds of volunteers and donations from
+people in all walks of life.
+
+Volunteers and financial support to provide volunteers with the
+assistance they need are critical to reaching Project Gutenberg-tm's
+goals and ensuring that the Project Gutenberg-tm collection will
+remain freely available for generations to come.  In 2001, the Project
+Gutenberg Literary Archive Foundation was created to provide a secure
+and permanent future for Project Gutenberg-tm and future generations.
+To learn more about the Project Gutenberg Literary Archive Foundation
+and how your efforts and donations can help, see Sections 3 and 4
+and the Foundation information page at www.gutenberg.org
+
+
+Section 3.  Information about the Project Gutenberg Literary Archive
+Foundation
+
+The Project Gutenberg Literary Archive Foundation is a non profit
+501(c)(3) educational corporation organized under the laws of the
+state of Mississippi and granted tax exempt status by the Internal
+Revenue Service.  The Foundation's EIN or federal tax identification
+number is 64-6221541.  Contributions to the Project Gutenberg
+Literary Archive Foundation are tax deductible to the full extent
+permitted by U.S. federal laws and your state's laws.
+
+The Foundation's principal office is located at 4557 Melan Dr. S.
+Fairbanks, AK, 99712., but its volunteers and employees are scattered
+throughout numerous locations.  Its business office is located at 809
+North 1500 West, Salt Lake City, UT 84116, (801) 596-1887.  Email
+contact links and up to date contact information can be found at the
+Foundation's web site and official page at www.gutenberg.org/contact
+
+For additional contact information:
+     Dr. Gregory B. Newby
+     Chief Executive and Director
+     gbnewby@pglaf.org
+
+Section 4.  Information about Donations to the Project Gutenberg
+Literary Archive Foundation
+
+Project Gutenberg-tm depends upon and cannot survive without wide
+spread public support and donations to carry out its mission of
+increasing the number of public domain and licensed works that can be
+freely distributed in machine readable form accessible by the widest
+array of equipment including outdated equipment.  Many small donations
+($1 to $5,000) are particularly important to maintaining tax exempt
+status with the IRS.
+
+The Foundation is committed to complying with the laws regulating
+charities and charitable donations in all 50 states of the United
+States.  Compliance requirements are not uniform and it takes a
+considerable effort, much paperwork and many fees to meet and keep up
+with these requirements.  We do not solicit donations in locations
+where we have not received written confirmation of compliance.  To
+SEND DONATIONS or determine the status of compliance for any
+particular state visit www.gutenberg.org/donate
+
+While we cannot and do not solicit contributions from states where we
+have not met the solicitation requirements, we know of no prohibition
+against accepting unsolicited donations from donors in such states who
+approach us with offers to donate.
+
+International donations are gratefully accepted, but we cannot make
+any statements concerning tax treatment of donations received from
+outside the United States.  U.S. laws alone swamp our small staff.
+
+Please check the Project Gutenberg Web pages for current donation
+methods and addresses.  Donations are accepted in a number of other
+ways including checks, online payments and credit card donations.
+To donate, please visit:  www.gutenberg.org/donate
+
+
+Section 5.  General Information About Project Gutenberg-tm electronic
+works.
+
+Professor Michael S. Hart was the originator of the Project Gutenberg-tm
+concept of a library of electronic works that could be freely shared
+with anyone.  For forty years, he produced and distributed Project
+Gutenberg-tm eBooks with only a loose network of volunteer support.
+
+Project Gutenberg-tm eBooks are often created from several printed
+editions, all of which are confirmed as Public Domain in the U.S.
+unless a copyright notice is included.  Thus, we do not necessarily
+keep eBooks in compliance with any particular paper edition.
+
+Most people start at our Web site which has the main PG search facility:
+
+     www.gutenberg.org
+
+This Web site includes information about Project Gutenberg-tm,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.
+\end{PGtext}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+%                                                                         %
+% End of the Project Gutenberg EBook of Geometrical Solutions Derived from%
+% Mechanics, by Archimedes                                                %
+%                                                                         %
+% *** END OF THIS PROJECT GUTENBERG EBOOK GEOMETRICAL SOLUTIONS ***       %
+%                                                                         %
+% ***** This file should be named 7825-t.tex or 7825-t.zip *****          %
+% This and all associated files of various formats will be found in:      %
+%         http://www.gutenberg.org/7/8/2/7825/                            %
+%                                                                         %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %
+
+\end{document}
+###
+@ControlwordReplace = (
+  ['\\ie', 'i.e.'],
+  ['\\ibid', 'ibid.'],
+  ['\\Ibid', 'Ibid.'],
+  ['\\QED', 'Q.E.D.']
+  );
+
+@ControlwordArguments = (
+  ['\\BookMark', 1, 0, '', '', 1, 0, '', ''],
+  ['\\Signature', 1, 1, '', ' ', 1, 1, '', ''],
+  ['\\Figure', 0, 0, '', '', 1, 0, '', '', 1, 0, '<GRAPHIC>', ''],
+  ['\\Figures', 1, 0, '', '', 1, 0, '', '', 1, 0, '', '', 1, 0, '<GRAPHIC>', ''],
+  ['\\Fig', 1, 1, 'Fig. ', ''],
+  ['\\First', 1, 1, '', ''],
+  ['\\Section', 1, 1, '', ''],
+  ['\\Subsection', 1, 1, '', ''],
+  ['\\Chg', 1, 0, '', '', 1, 1, '', '']
+  );
+$PageSeparator = qr/^\\PageSep/;
+$CustomClean = 'print "\\nCustom cleaning in progress...";
+my $cline = 0;
+ while ($cline <= $#file) {
+   $file[$cline] =~ s/--------[^\n]*\n//; # strip page separators
+   $cline++
+ }
+ print "done\\n";';
+###
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.6)  1 NOV 2014 12:57
+entering extended mode
+ %&-line parsing enabled.
+**7825-t.tex
+(./7825-t.tex
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/leqno.clo
+File: leqno.clo 1998/08/17 v1.1c Standard LaTeX option (left equation numbers)
+) (/usr/share/texlive/texmf-dist/tex/latex/base/bk12.clo
+File: bk12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2013/12/03 3.9h The Babel package
+(/usr/share/texlive/texmf-dist/tex/generic/babel-greek/greek.ldf
+Language: greek 2013/12/03 v1.8a Greek support for the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2013/12/03 3.9h Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+) (/usr/share/texlive/texmf-dist/tex/latex/greek-fontenc/lgrenc.def
+File: lgrenc.def 2013/07/16 v0.9 LGR Greek font encoding definitions
+(/usr/share/texlive/texmf-dist/tex/latex/greek-fontenc/greek-fontenc.def
+File: greek-fontenc.def 2013/11/28 v0.11 Common Greek font encoding definitions
+
+))) (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen104
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks17
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks18
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks21
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count101
+))
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count102
+\calc@Bcount=\count103
+\calc@Adimen=\dimen115
+\calc@Bdimen=\dimen116
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count104
+\calc@Cskip=\skip48
+) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip49
+\f@ncyO@elh=\skip50
+\f@ncyO@erh=\skip51
+\f@ncyO@olh=\skip52
+\f@ncyO@orh=\skip53
+\f@ncyO@elf=\skip54
+\f@ncyO@erf=\skip55
+\f@ncyO@olf=\skip56
+\f@ncyO@orf=\skip57
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+) (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count105
+\Gm@cntv=\count106
+\c@Gm@tempcnt=\count107
+\Gm@bindingoffset=\dimen117
+\Gm@wd@mp=\dimen118
+\Gm@odd@mp=\dimen119
+\Gm@even@mp=\dimen120
+\Gm@layoutwidth=\dimen121
+\Gm@layoutheight=\dimen122
+\Gm@layouthoffset=\dimen123
+\Gm@layoutvoffset=\dimen124
+\Gm@dimlist=\toks22
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen125
+\Hy@linkcounter=\count108
+\Hy@pagecounter=\count109
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count110
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `hyperfootnotes' set `false' on input line 4319.
+Package hyperref Info: Option `bookmarks' set `true' on input line 4319.
+Package hyperref Info: Option `linktocpage' set `false' on input line 4319.
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 431
+9.
+Package hyperref Info: Option `pdfpagelabels' set `true' on input line 4319.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4319.
+Package hyperref Info: Option `colorlinks' set `true' on input line 4319.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count111
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen126
+\Fld@menulength=\count112
+\Field@Width=\dimen127
+\Fld@charsize=\dimen128
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring ON on input line 6313.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count113
+\c@Item=\count114
+)
+
+Package hyperref Message: Driver: hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count115
+\c@bookmark@seq@number=\count116
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip58
+) (./7825-t.aux
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 23.
+(/usr/share/texlive/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
+File: lgrcmr.fd 2013/09/01 v1.0 Greek European Computer Regular
+))
+\openout1 = `7825-t.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 371.
+LaTeX Font Info:    ... okay on input line 371.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 371.
+LaTeX Font Info:    ... okay on input line 371.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 371.
+LaTeX Font Info:    ... okay on input line 371.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 371.
+LaTeX Font Info:    ... okay on input line 371.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 371.
+LaTeX Font Info:    ... okay on input line 371.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 371.
+LaTeX Font Info:    ... okay on input line 371.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 371.
+LaTeX Font Info:    ... okay on input line 371.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 371.
+LaTeX Font Info:    ... okay on input line 371.
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count117
+\scratchdimen=\dimen129
+\scratchbox=\box28
+\nofMPsegments=\count118
+\nofMParguments=\count119
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count120
+\MPscratchDim=\dimen130
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
+\everyMPtoPDFconversion=\toks24
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* hratio: 1:1
+* modes: includehead includefoot twoside 
+* h-part:(L,W,R)=(9.03375pt, 307.14749pt, 9.03375pt)
+* v-part:(T,H,B)=(1.26749pt, 466.58623pt, 1.90128pt)
+* \paperwidth=325.215pt
+* \paperheight=469.75499pt
+* \textwidth=307.14749pt
+* \textheight=404.71243pt
+* \oddsidemargin=-63.23624pt
+* \evensidemargin=-63.23624pt
+* \topmargin=-71.0025pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=98.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box29
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+Package hyperref Info: Link coloring ON on input line 371.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count123
+)
+LaTeX Info: Redefining \ref on input line 371.
+LaTeX Info: Redefining \pageref on input line 371.
+LaTeX Info: Redefining \nameref on input line 371.
+(./7825-t.out) (./7825-t.out)
+\@outlinefile=\write3
+\openout3 = `7825-t.out'.
+
+
+Overfull \hbox (28.60733pt too wide) in paragraph at lines 378--378
+[]\OT1/cmtt/m/n/8 The Project Gutenberg EBook of Geometrical Solutions Derived 
+from Mechanics, by[] 
+ []
+
+
+Overfull \hbox (7.35703pt too wide) in paragraph at lines 381--381
+[]\OT1/cmtt/m/n/8 This eBook is for the use of anyone anywhere in the United St
+ates and most[] 
+ []
+
+
+Overfull \hbox (7.35703pt too wide) in paragraph at lines 383--383
+[]\OT1/cmtt/m/n/8 whatsoever.  You may copy it, give it away or re-use it under
+ the terms of[] 
+ []
+
+
+Overfull \hbox (15.85715pt too wide) in paragraph at lines 385--385
+[]\OT1/cmtt/m/n/8 www.gutenberg.org.  If you are not located in the United Stat
+es, you'll have[] 
+ []
+
+
+Overfull \hbox (28.60733pt too wide) in paragraph at lines 386--386
+[]\OT1/cmtt/m/n/8 to check the laws of the country where you are located before
+ using this ebook.[] 
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 403.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 403.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [1
+
+
+] [2] [1
+
+
+
+] [2] [3] [4] [5] [6] [7] [8] [9
+
+] [10] [11] [12] <./images/fig01.png, id=187, 397.485pt x 349.305pt>
+File: ./images/fig01.png Graphic file (type png)
+<use ./images/fig01.png>
+Package pdftex.def Info: ./images/fig01.png used on input line 867.
+(pdftex.def)             Requested size: 202.71846pt x 178.14851pt.
+[13] [14 <./images/fig01.png>] [15] <./images/fig02.png, id=204, 375.4025pt x 3
+49.305pt>
+File: ./images/fig02.png Graphic file (type png)
+<use ./images/fig02.png>
+Package pdftex.def Info: ./images/fig02.png used on input line 908.
+(pdftex.def)             Requested size: 202.71846pt x 188.62721pt.
+[16 <./images/fig02.png>] [17] [18] [19] <./images/fig03.png, id=228, 334.24875
+pt x 362.35374pt>
+File: ./images/fig03.png Graphic file (type png)
+<use ./images/fig03.png>
+Package pdftex.def Info: ./images/fig03.png used on input line 1045.
+(pdftex.def)             Requested size: 202.71846pt x 219.7693pt.
+[20] [21 <./images/fig03.png>] [22] <./images/fig04.png, id=244, 298.11375pt x 
+277.035pt>
+File: ./images/fig04.png Graphic file (type png)
+<use ./images/fig04.png>
+Package pdftex.def Info: ./images/fig04.png used on input line 1118.
+(pdftex.def)             Requested size: 202.71846pt x 188.38553pt.
+[23] [24] [25 <./images/fig04.png>] <./images/fig05.png, id=261, 313.17pt x 336
+.25626pt>
+File: ./images/fig05.png Graphic file (type png)
+<use ./images/fig05.png>
+Package pdftex.def Info: ./images/fig05.png used on input line 1175.
+(pdftex.def)             Requested size: 202.71846pt x 217.6712pt.
+[26] [27 <./images/fig05.png>] [28] <./images/fig06.png, id=279, 201.75375pt x 
+373.395pt>
+File: ./images/fig06.png Graphic file (type png)
+<use ./images/fig06.png>
+Package pdftex.def Info: ./images/fig06.png used on input line 1246.
+(pdftex.def)             Requested size: 153.57375pt x 284.22755pt.
+[29] [30 <./images/fig06.png>] <./images/fig07.png, id=292, 404.51125pt x 416.5
+5624pt>
+File: ./images/fig07.png Graphic file (type png)
+<use ./images/fig07.png>
+Package pdftex.def Info: ./images/fig07.png used on input line 1285.
+(pdftex.def)             Requested size: 202.71846pt x 208.75432pt.
+[31] [32 <./images/fig07.png>] <./images/fig08.png, id=306, 279.0425pt x 450.68
+375pt>
+File: ./images/fig08.png Graphic file (type png)
+<use ./images/fig08.png>
+Package pdftex.def Info: ./images/fig08.png used on input line 1332.
+(pdftex.def)             Requested size: 153.57375pt x 248.04185pt.
+[33] [34 <./images/fig08.png>] [35] [36] [37] <./images/fig09.png, id=339, 301.
+125pt x 303.1325pt>
+File: ./images/fig09.png Graphic file (type png)
+<use ./images/fig09.png>
+Package pdftex.def Info: ./images/fig09.png used on input line 1460.
+(pdftex.def)             Requested size: 138.21542pt x 139.14198pt.
+<./images/fig10.png, id=340, 246.9225pt x 239.89626pt>
+File: ./images/fig10.png Graphic file (type png)
+<use ./images/fig10.png>
+Package pdftex.def Info: ./images/fig10.png used on input line 1460.
+(pdftex.def)             Requested size: 138.21542pt x 134.28241pt.
+[38] [39 <./images/fig09.png> <./images/fig10.png>] [40] <./images/fig11.png, i
+d=361, 242.9075pt x 234.8775pt>
+File: ./images/fig11.png Graphic file (type png)
+<use ./images/fig11.png>
+Package pdftex.def Info: ./images/fig11.png used on input line 1527.
+(pdftex.def)             Requested size: 202.71846pt x 196.01628pt.
+[41] <./images/fig12.png, id=370, 240.9pt x 237.88875pt>
+File: ./images/fig12.png Graphic file (type png)
+<use ./images/fig12.png>
+Package pdftex.def Info: ./images/fig12.png used on input line 1568.
+(pdftex.def)             Requested size: 202.71846pt x 200.18816pt.
+[42 <./images/fig11.png>] [43] [44 <./images/fig12.png>] [45] [46] [1
+
+
+
+]
+Overfull \hbox (3.10696pt too wide) in paragraph at lines 1706--1706
+[]\OT1/cmtt/m/n/8 1.C.  The Project Gutenberg Literary Archive Foundation ("the
+ Foundation"[] 
+ []
+
+
+Overfull \hbox (3.10696pt too wide) in paragraph at lines 1711--1711
+[]\OT1/cmtt/m/n/8 located in the United States, we do not claim a right to prev
+ent you from[] 
+ []
+
+
+Overfull \hbox (3.10696pt too wide) in paragraph at lines 1716--1716
+[]\OT1/cmtt/m/n/8 freely sharing Project Gutenberg-tm works in compliance with 
+the terms of[] 
+ []
+
+[2] [3]
+Overfull \hbox (3.10696pt too wide) in paragraph at lines 1779--1779
+[]\OT1/cmtt/m/n/8 posted on the official Project Gutenberg-tm web site (www.gut
+enberg.org),[] 
+ []
+
+[4] [5] [6] [7] [8]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2008.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2008.
+(./7825-t.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2008.
+
+ *File List*
+    book.cls    2007/10/19 v1.4h Standard LaTeX document class
+   leqno.clo    1998/08/17 v1.1c Standard LaTeX option (left equation numbers)
+    bk12.clo    2007/10/19 v1.4h Standard LaTeX file (size option)
+inputenc.sty    2008/03/30 v1.1d Input encoding file
+  latin1.def    2008/03/30 v1.1d Input encoding file
+  ifthen.sty    2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+   babel.sty    2013/12/03 3.9h The Babel package
+   greek.ldf    2013/12/03 v1.8a Greek support for the babel system
+  lgrenc.def    2013/07/16 v0.9 LGR Greek font encoding definitions
+greek-fontenc.def    2013/11/28 v0.11 Common Greek font encoding definitions
+ english.ldf    2012/08/20 v3.3p English support from the babel system
+ amsmath.sty    2013/01/14 v2.14 AMS math features
+ amstext.sty    2000/06/29 v2.01
+  amsgen.sty    1999/11/30 v2.0
+  amsbsy.sty    1999/11/29 v1.2d
+  amsopn.sty    1999/12/14 v2.01 operator names
+ amssymb.sty    2013/01/14 v3.01 AMS font symbols
+amsfonts.sty    2013/01/14 v3.01 Basic AMSFonts support
+   alltt.sty    1997/06/16 v2.0g defines alltt environment
+indentfirst.sty    1995/11/23 v1.03 Indent first paragraph (DPC)
+graphicx.sty    1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+  keyval.sty    1999/03/16 v1.13 key=value parser (DPC)
+graphics.sty    2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+    trig.sty    1999/03/16 v1.09 sin cos tan (DPC)
+graphics.cfg    2010/04/23 v1.9 graphics configuration of TeX Live
+  pdftex.def    2011/05/27 v0.06d Graphics/color for pdfTeX
+infwarerr.sty    2010/04/08 v1.3 Providing info/warning/error messages (HO)
+ ltxcmds.sty    2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+    calc.sty    2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+fancyhdr.sty    
+geometry.sty    2010/09/12 v5.6 Page Geometry
+   ifpdf.sty    2011/01/30 v2.3 Provides the ifpdf switch (HO)
+  ifvtex.sty    2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+ ifxetex.sty    2010/09/12 v0.6 Provides ifxetex conditional
+hyperref.sty    2012/11/06 v6.83m Hypertext links for LaTeX
+hobsub-hyperref.sty    2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+hobsub-generic.sty    2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+  hobsub.sty    2012/05/28 v1.13 Construct package bundles (HO)
+ifluatex.sty    2010/03/01 v1.3 Provides the ifluatex switch (HO)
+ intcalc.sty    2007/09/27 v1.1 Expandable calculations with integers (HO)
+etexcmds.sty    2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+kvsetkeys.sty    2012/04/25 v1.16 Key value parser (HO)
+kvdefinekeys.sty    2011/04/07 v1.3 Define keys (HO)
+pdftexcmds.sty    2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO)
+pdfescape.sty    2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+bigintcalc.sty    2012/04/08 v1.3 Expandable calculations on big integers (HO)
+  bitset.sty    2011/01/30 v1.1 Handle bit-vector datatype (HO)
+uniquecounter.sty    2011/01/30 v1.2 Provide unlimited unique counter (HO)
+letltxmacro.sty    2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+ hopatch.sty    2012/05/28 v1.2 Wrapper for package hooks (HO)
+xcolor-patch.sty    2011/01/30 xcolor patch
+atveryend.sty    2011/06/30 v1.8 Hooks at the very end of document (HO)
+atbegshi.sty    2011/10/05 v1.16 At begin shipout hook (HO)
+refcount.sty    2011/10/16 v3.4 Data extraction from label references (HO)
+ hycolor.sty    2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+ auxhook.sty    2011/03/04 v1.3 Hooks for auxiliary files (HO)
+kvoptions.sty    2011/06/30 v3.11 Key value format for package options (HO)
+  pd1enc.def    2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+hyperref.cfg    2002/06/06 v1.2 hyperref configuration of TeXLive
+     url.sty    2013/09/16  ver 3.4  Verb mode for urls, etc.
+ hpdftex.def    2012/11/06 v6.83m Hyperref driver for pdfTeX
+rerunfilecheck.sty    2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+  lgrcmr.fd    2013/09/01 v1.0 Greek European Computer Regular
+supp-pdf.mkii
+   color.sty    2005/11/14 v1.0j Standard LaTeX Color (DPC)
+   color.cfg    2007/01/18 v1.5 color configuration of teTeX/TeXLive
+ nameref.sty    2012/10/27 v2.43 Cross-referencing by name of section
+gettitlestring.sty    2010/12/03 v1.4 Cleanup title references (HO)
+  7825-t.out
+  7825-t.out
+    umsa.fd    2013/01/14 v3.01 AMS symbols A
+    umsb.fd    2013/01/14 v3.01 AMS symbols B
+./images/fig01.png
+./images/fig02.png
+./images/fig03.png
+./images/fig04.png
+./images/fig05.png
+./images/fig06.png
+./images/fig07.png
+./images/fig08.png
+./images/fig09.png
+./images/fig10.png
+./images/fig11.png
+./images/fig12.png
+ ***********
+
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2008.
+
+Package rerunfilecheck Info: File `7825-t.out' has not changed.
+(rerunfilecheck)             Checksum: 4A75607023C033ACCE3941ED3C3BF718;2021.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2008.
+ ) 
+Here is how much of TeX's memory you used:
+ 8050 strings out of 493304
+ 117723 string characters out of 6139872
+ 218823 words of memory out of 5000000
+ 11246 multiletter control sequences out of 15000+600000
+ 17147 words of font info for 63 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 28i,12n,43p,485b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/cbfonts/grmn1000.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/cbfonts/grmn1200.pfb>
+Output written on 7825-t.pdf (59 pages, 427615 bytes).
+PDF statistics:
+ 515 PDF objects out of 1000 (max. 8388607)
+ 423 compressed objects within 5 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 245 words of extra memory for PDF output out of 10000 (max. 10000000)
+
