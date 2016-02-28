@@ -1,0 +1,48 @@
+_repo: Geometrical-Solutions-Derived-from-Mechanics-a-Treatise-of-Archimedes_7825
+contributor:
+  author_of_introduction:
+    agent_name: Smith, David Eugene
+    aliases:
+    - Smith, Eugene
+    - Dunham, David
+    birthdate: 1860
+    deathdate: 1944
+    gutenberg_agent_id: '3258'
+    url: http://www.gutenberg.org/2009/agents/3258
+    wikipedia: http://en.wikipedia.org/wiki/David_Eugene_Smith
+  translators:
+  - agent_name: Heiberg, J. L. (Johan Ludvig)
+    aliases:
+    - Heiberg, I. L.
+    - Heiberg, Johan Ludvig
+    birthdate: 1854
+    deathdate: 1928
+    gutenberg_agent_id: '2845'
+    url: http://www.gutenberg.org/2009/agents/2845
+  - agent_name: Robinson, Lydia Gillingham
+    birthdate: 1875
+    gutenberg_agent_id: '39567'
+    url: http://www.gutenberg.org/2009/agents/39567
+creator:
+  author:
+    agent_name: Archimedes
+    birthdate: -290
+    deathdate: -212
+    gutenberg_agent_id: '2545'
+    url: http://www.gutenberg.org/2009/agents/2545
+    wikipedia: http://en.wikipedia.org/wiki/Archimedes
+description: ''
+gutenberg_bookshelf: Mathematics
+gutenberg_issued: '2005-04-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '7825'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Geometry -- Early works to 1800'
+- !lcc 'QA'
+title: Geometrical Solutions Derived from Mechanics; a Treatise of Archimedes
+url: http://www.gutenberg.org/ebooks/7825
